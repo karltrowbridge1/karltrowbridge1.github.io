@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Blogs on My New Hugo Site</title>
-    <link>http://localhost:1313/blog/</link>
-    <description>Recent content in Blogs on My New Hugo Site</description>
-    <generator>Hugo</generator>
-    <language>en-us</language>
-    <lastBuildDate>Mon, 29 Jul 2024 14:24:35 -0400</lastBuildDate>
-    <atom:link href="http://localhost:1313/blog/index.xml" rel="self" type="application/rss+xml" />
+    <title>Blogs on Karl-Trowbridge</title>
+    <link>https://karltrowbridge1.github.io/blog/</link>
+    <description>Recent content in Blogs on Karl-Trowbridge</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 29 Jul 2024 14:24:35 -0400</lastBuildDate><atom:link href="https://karltrowbridge1.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Firstpost</title>
-      <link>http://localhost:1313/blog/firstpost/</link>
+      <link>https://karltrowbridge1.github.io/blog/firstpost/</link>
       <pubDate>Mon, 29 Jul 2024 14:24:35 -0400</pubDate>
-      <guid>http://localhost:1313/blog/firstpost/</guid>
+      
+      <guid>https://karltrowbridge1.github.io/blog/firstpost/</guid>
       <description>This is my first post on the blog I wanted to create a place for me to talk about weekly or monthly progress made in my free time. As of right now, I am curretnly working on a project called spotbot, and studying for a certification called PJPT along side my brother, a cybersecurity professional. Instead of flooding my LinkedIn with posts about things like this, I thought I would blog about it instead and maybe post about big milestones in this blog on said LinkedIn.</description>
     </item>
+    
   </channel>
 </rss>
