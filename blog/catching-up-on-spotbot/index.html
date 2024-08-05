@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Catching Up on SpotBot | Karl Trowbridge Portfolio</title>
+<meta name="keywords" content="">
+<meta name="description" content="Spotbot 1 Spotbot is a Discord bot that scrapes Spotify links from a Discord channel and automatically adds the songs to a set Spotify playlist. Users must set up and host the bot on their own hardware. To authenticate, user login with a Spotify account and set all parameters in a JSON file. In its original state the bot utilizes files for storage of links sent in the chat.
+When Matt, my college friend started applying to jobs he wanted to again start development to have a project to talk about in interviews.">
+<meta name="author" content="Karl Trowbridge">
+<link rel="canonical" href="https://karltrowbridge1.github.io/blog/catching-up-on-spotbot/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.6a98292fb8fa8cf0f3ba4042d4b75515c04267550f3ad49ff6271b5af9562443.css" integrity="sha256-apgpL7j6jPDzukBC1LdVFcBCZ1UPOtSf9icbWvlWJEM=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://karltrowbridge1.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://karltrowbridge1.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://karltrowbridge1.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://karltrowbridge1.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://karltrowbridge1.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://karltrowbridge1.github.io/blog/catching-up-on-spotbot/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+  
+
+<meta property="og:title" content="Catching Up on SpotBot" />
+<meta property="og:description" content="Spotbot 1 Spotbot is a Discord bot that scrapes Spotify links from a Discord channel and automatically adds the songs to a set Spotify playlist. Users must set up and host the bot on their own hardware. To authenticate, user login with a Spotify account and set all parameters in a JSON file. In its original state the bot utilizes files for storage of links sent in the chat.
+When Matt, my college friend started applying to jobs he wanted to again start development to have a project to talk about in interviews." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://karltrowbridge1.github.io/blog/catching-up-on-spotbot/" />
+<meta property="og:image" content="https://karltrowbridge1.github.io/images/footballScoreboard.jpg" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2024-07-31T18:10:27-04:00" />
+<meta property="article:modified_time" content="2024-07-31T18:10:27-04:00" /><meta property="og:site_name" content="The Portfolio" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://karltrowbridge1.github.io/images/footballScoreboard.jpg" />
+<meta name="twitter:title" content="Catching Up on SpotBot"/>
+<meta name="twitter:description" content="Spotbot 1 Spotbot is a Discord bot that scrapes Spotify links from a Discord channel and automatically adds the songs to a set Spotify playlist. Users must set up and host the bot on their own hardware. To authenticate, user login with a Spotify account and set all parameters in a JSON file. In its original state the bot utilizes files for storage of links sent in the chat.
+When Matt, my college friend started applying to jobs he wanted to again start development to have a project to talk about in interviews."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Blogs",
+      "item": "https://karltrowbridge1.github.io/blog/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Catching Up on SpotBot",
+      "item": "https://karltrowbridge1.github.io/blog/catching-up-on-spotbot/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Catching Up on SpotBot",
+  "name": "Catching Up on SpotBot",
+  "description": "Spotbot 1 Spotbot is a Discord bot that scrapes Spotify links from a Discord channel and automatically adds the songs to a set Spotify playlist. Users must set up and host the bot on their own hardware. To authenticate, user login with a Spotify account and set all parameters in a JSON file. In its original state the bot utilizes files for storage of links sent in the chat.\nWhen Matt, my college friend started applying to jobs he wanted to again start development to have a project to talk about in interviews.",
+  "keywords": [
+    
+  ],
+  "articleBody": "Spotbot 1 Spotbot is a Discord bot that scrapes Spotify links from a Discord channel and automatically adds the songs to a set Spotify playlist. Users must set up and host the bot on their own hardware. To authenticate, user login with a Spotify account and set all parameters in a JSON file. In its original state the bot utilizes files for storage of links sent in the chat.\nWhen Matt, my college friend started applying to jobs he wanted to again start development to have a project to talk about in interviews. He decided to ask for help from some of his friends and create a new GitHub for use to work on.\nUpgrades The big upgrades planned:\nStore data in database: allows for new features and storage of meta-data Spotbot Installer: simplifies installation process Rate limiting: avoids issues with several songs being sent in chat Leaderboards: “gameify” the use of the app Milestones / achievements: “gameify” the use of the app We set up a Kanban and got to work. My first order of business was working on the database to store the links sent in the chat and collect more metadata for later analysis or features.\nDatabase The application already had some overhead in the form of hosting and configuration. Weighing these characteristics I chose SQLite for its lightweight nature and Python library for integration.\nThis required the baseline creation of the database for the storage of links, messages, timestamps, and users responsible for said links. Any portion of the application that previously interfaced with the file now had to be updated to connect to the database and query for results. Notable aspects of previously established functions that had to be re-written were the following:\nRandom song function Duplicate song check URI staging file function It goes without saying that after transitioning code to interface with this database, proceeding functions will also need to interface with the database.\nA small side note on databases, the playlist duration milestones function also uses the database. The playlist duration milestones are measured in hours from 1 all the way to 1000 and need persistence if the server for some reason has to restart. This could have been achieved through JSON but another team member is theorizing that cross-platform issues between Linux and Windows are due to JSON writing. Thus, a database table was created to keep track of achievements.\nLeaderboards The ideas for leaderboards help “gameify” the application by adding leaderboards for songs given by each user. To cover bases for all sizes of servers, several types of leaderboards were made:\nA leaderboard for all-time stats A this-month leaderboard for stats on the current month A reaction champion for highest reacted songs for the current month All-Time The first leaderboard for all time stats was made possible through the use of basic SQL. Utilizing the harvested sender_id from each filed Spotify link, the application can group all songs sent by the same user together. This is then filled into an embed to be sent to the chat that is formatted in a presentable fashion, alongside a link to the playlist itself.\nThis Month The second leaderboard that is limited to the current month makes use of the timestamp field in the database. As each link is filed in the database, the exact time stamp is recorded from the actual Discord message itself. This is made possible through discords data. when the message is recorded, the timestamp that it was sent to the Discord server using msg.created_at. I then format this to year-month-day hour:minute:second. Using the current year and month the SQL select statement can return only songs from this time period and count the number of links sent by each individual user.\nReactions this Month Finally, the last leaderboard is the reaction champion leaderboard. In Discord, users can add “reactions” to messages, where an emoji will be displayed under the respective message. Other users can click this reaction to add another reaction to it. This leaderboard utilizes the discord_message_id, a metric that our database collects that references the ID of the actual message on Discords servers. The usefulness of this metric offers the exact messages that need to be looked at. instead of parsing the entire log of messages, the bot can skip messages that do not count and begin the tally on messages that contain links sent containing Spotify songs.\nAchievements For achievements the app uses 2 metrics; number of songs in the playlist and playlist duration.\nNumber of Songs The first and most simple of the 2 is the number of songs in the playlist. Every 5 messages, the number of songs is compared to the pre-set number of milestones that grow in size from 25 songs to the 100’s of songs. If one of these numbers is met, a message is crafted and sent from the bot in celebration.\nPlaylist Duration For the more complex of the 2 we have the playlist duration achievements. Again as previously stated, the playlist duration milestones function also uses the database. This requires the use of the Spotify API.\nAll of the work regarding the initial access to Spotify’s API, token handling, and token renewal, was already written and in a working state. This whole portion needed to be rewritten to better promote abstraction to pass a spotipy object to be used by the duration achievement portion of the program. In short, many aspects of the playlist_update.py file were moved around and rewritten to break up processes into smaller easier to digest methods.\nWith these methods, the spotipy object can be retrieved and used by achievements.py to get the playlist items from Spotify’s API and begin the process of summing the total duration in hours. This is then returned. The problem that separates this issue from the initial number of songs achievement is the fact that the playlist could potentially be the length of an achievement for several checks.\nUsing the database created, if the length in hours matches a milestone the database will record an associated timestamp for each milestone respectively. When the length is checked again and the duration is still the same milestone the timestamp will be populated and no longer send out a celebration message.\nSummary Spotbot is a Discord bot that adds Spotify links from a Discord channel to a Spotify playlist. The initial project utilized text files for its main storage of songs. With the upgrades I have done so far, the bot now uses an SQLite database for storing links, messages, timestamps, and user data. Some features I have added include leaderboards and achievements that “gameify” the app and increase user interaction.\nThese leaderboards track all-time stats, monthly stats, and reactions. The achievements are based on the number of songs and playlist duration. The database offers persistence and avoids issues with JSON. Finally I have better abstracted the Spotify API interactions within the app for better maintainability.\n",
+  "wordCount" : "1153",
+  "inLanguage": "en",
+  "image":"https://karltrowbridge1.github.io/images/footballScoreboard.jpg","datePublished": "2024-07-31T18:10:27-04:00",
+  "dateModified": "2024-07-31T18:10:27-04:00",
+  "author":{
+    "@type": "Person",
+    "name": "Karl Trowbridge"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://karltrowbridge1.github.io/blog/catching-up-on-spotbot/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Karl Trowbridge Portfolio",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://karltrowbridge1.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class=" dark" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://karltrowbridge1.github.io/" accesskey="h" title="Karl Trowbridge Portfolio (Alt + H)">Karl Trowbridge Portfolio</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://karltrowbridge1.github.io/projects/" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://karltrowbridge1.github.io/blog/" title="Blog">
+                    <span>Blog</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.linkedin.com/in/karl-trowbridge-cyber/" title="LinkedIn">
+                    <span>LinkedIn</span>&nbsp;
+                    <svg fill="none" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" height="12" width="12">
+                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                        <path d="M15 3h6v6"></path>
+                        <path d="M10 14L21 3"></path>
+                    </svg>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://karltrowbridge1.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://karltrowbridge1.github.io/blog/">Blogs</a></div>
+    <h1 class="post-title">
+      Catching Up on SpotBot
+    </h1>
+  </header> 
+<figure class="entry-cover"><img loading="lazy" src="https://karltrowbridge1.github.io/images/footballScoreboard.jpg" alt="">
+        
+</figure><div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#database">Database</a></li>
+    <li><a href="#leaderboards">Leaderboards</a></li>
+    <li><a href="#achievements">Achievements</a></li>
+  </ul>
+</nav>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h1 id="spotbot-1">Spotbot 1<a hidden class="anchor" aria-hidden="true" href="#spotbot-1">#</a></h1>
+<p>Spotbot is a Discord bot that scrapes Spotify links from a Discord channel and automatically adds the songs to a set Spotify playlist. Users must set up and host the bot on their own hardware. To authenticate, user login with a Spotify account and set all parameters in a JSON file. In its original state the bot utilizes files for storage of links sent in the chat.</p>
+<p>When Matt, my college friend started applying to jobs he wanted to again start development to have a project to talk about in interviews. He decided to ask for help from some of his friends and create a new GitHub for use to work on.</p>
+<h1 id="upgrades">Upgrades<a hidden class="anchor" aria-hidden="true" href="#upgrades">#</a></h1>
+<p>The big upgrades planned:</p>
+<ul>
+<li>Store data in database: allows for new features and storage of meta-data</li>
+<li>Spotbot Installer: simplifies installation process</li>
+<li>Rate limiting: avoids issues with several songs being sent in chat</li>
+<li>Leaderboards: &ldquo;gameify&rdquo; the use of the app</li>
+<li>Milestones / achievements: &ldquo;gameify&rdquo; the use of the app</li>
+</ul>
+<p>We set up a Kanban and got to work. My first order of business was working on the database to store the links sent in the chat and collect more metadata for later analysis or features.</p>
+<h2 id="database">Database<a hidden class="anchor" aria-hidden="true" href="#database">#</a></h2>
+<p>The application already had some overhead in the form of hosting and configuration. Weighing these characteristics I chose <strong>SQLite</strong> for its lightweight nature and Python library for integration.</p>
+<p>This required the baseline creation of the database for the storage of links, messages, timestamps, and users responsible for said links. Any portion of the application that previously interfaced with the file now had to be updated to connect to the database and query for results. Notable aspects of previously established functions that had to be re-written were the following:</p>
+<ul>
+<li>Random song function</li>
+<li>Duplicate song check</li>
+<li>URI staging file function</li>
+</ul>
+<p>It goes without saying that after transitioning code to interface with this database, proceeding functions will also need to interface with the database.</p>
+<p>A small side note on databases, the playlist duration milestones function also uses the database. The playlist duration milestones are measured in hours from 1 all the way to 1000 and need persistence if the server for some reason has to restart. This could have been achieved through JSON but another team member is theorizing that cross-platform issues between Linux and Windows are due to JSON writing. Thus, a database table was created to keep track of achievements.</p>
+<h2 id="leaderboards">Leaderboards<a hidden class="anchor" aria-hidden="true" href="#leaderboards">#</a></h2>
+<p>The ideas for leaderboards help &ldquo;gameify&rdquo; the application by adding leaderboards for songs given by each user. To cover bases for all sizes of servers, several types of leaderboards were made:</p>
+<ol>
+<li>A leaderboard for all-time stats</li>
+<li>A this-month leaderboard for stats on the current month</li>
+<li>A reaction champion for highest reacted songs for the current month</li>
+</ol>
+<p><strong>All-Time</strong>
+The first leaderboard for all time stats was made possible through the use of basic SQL. Utilizing the harvested <code>sender_id</code> from each filed Spotify link, the application can group all songs sent by the same user together. This is then filled into an embed to be sent to the chat that is formatted in a presentable fashion, alongside a link to the playlist itself.</p>
+<p><strong>This Month</strong>
+The second leaderboard that is limited to the current month makes use of the <code>timestamp</code> field in the database. As each link is filed in the database, the exact time stamp is recorded from the actual Discord message itself. This is made possible through discords data. when the message is recorded, the timestamp that it was sent to the Discord server using <code>msg.created_at</code>. I then format this to <code>year-month-day hour:minute:second</code>. Using the current year and month the SQL select statement can return only songs from this time period and count the number of links sent by each individual user.</p>
+<p><strong>Reactions this Month</strong>
+Finally, the last leaderboard is the reaction champion leaderboard. In Discord, users can add &ldquo;reactions&rdquo; to messages, where an emoji will be displayed under the respective message. Other users can click this reaction to add another reaction to it. This leaderboard utilizes the <code>discord_message_id</code>, a metric that our database collects that references the ID of the actual message on Discords servers. The usefulness of this metric offers the exact messages that need to be looked at. instead of parsing the entire log of messages, the bot can skip messages that do not count and begin the tally on messages that contain links sent containing Spotify songs.</p>
+<h2 id="achievements">Achievements<a hidden class="anchor" aria-hidden="true" href="#achievements">#</a></h2>
+<p>For achievements the app uses 2 metrics; number of songs in the playlist and playlist duration.</p>
+<p><strong>Number of Songs</strong>
+The first and most simple of the 2 is the number of songs in the playlist. Every 5 messages, the number of songs is compared to the pre-set number of milestones that grow in size from 25 songs to the 100&rsquo;s of songs. If one of these numbers is met, a message is crafted and sent from the bot in celebration.</p>
+<p><strong>Playlist Duration</strong>
+For the more complex of the 2 we have the playlist duration achievements. Again as previously stated, the playlist duration milestones function also uses the database. This requires the use of the Spotify API.</p>
+<p>All of the work regarding the initial access to Spotify&rsquo;s API, token handling, and token renewal, was already written and in a working state. This whole portion needed to be rewritten to better promote abstraction to pass a <code>spotipy</code> object to be used by the duration achievement portion of the program. In short, many aspects of the <code>playlist_update.py</code> file were moved around and rewritten to break up processes into smaller easier to digest methods.</p>
+<p>With these methods, the <code>spotipy</code> object can be retrieved and used by <code>achievements.py</code> to get the playlist items from Spotify&rsquo;s API and begin the process of summing the total duration in hours. This is then returned. The problem that separates this issue from the initial number of songs achievement is the fact that the playlist could potentially be the length of an achievement for several checks.</p>
+<p>Using the database created, if the length in hours matches a milestone the database will record an associated timestamp for each milestone respectively. When the length is checked again and the duration is still the same milestone the timestamp will be populated and no longer send out a celebration message.</p>
+<h1 id="summary">Summary<a hidden class="anchor" aria-hidden="true" href="#summary">#</a></h1>
+<p>Spotbot is a Discord bot that adds Spotify links from a Discord channel to a Spotify playlist. The initial project utilized text files for its main storage of songs. With the upgrades I have done so far, the bot now uses an SQLite database for storing links, messages, timestamps, and user data. Some features I have added include leaderboards and achievements that &ldquo;gameify&rdquo; the app and increase user interaction.</p>
+<p>These leaderboards track all-time stats, monthly stats, and reactions. The achievements are based on the number of songs and playlist duration. The database offers persistence and avoids issues with JSON. Finally I have better abstracted the Spotify API interactions within the app for better maintainability.</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2024 <a href="https://karltrowbridge1.github.io/">Karl Trowbridge Portfolio</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

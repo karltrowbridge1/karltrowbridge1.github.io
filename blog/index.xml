@@ -1,12 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Blogs on Karl-Trowbridge</title>
+    <title>Blogs on Karl Trowbridge Portfolio</title>
     <link>https://karltrowbridge1.github.io/blog/</link>
-    <description>Recent content in Blogs on Karl-Trowbridge</description>
+    <description>Recent content in Blogs on Karl Trowbridge Portfolio</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 29 Jul 2024 14:24:35 -0400</lastBuildDate><atom:link href="https://karltrowbridge1.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 31 Jul 2024 18:10:27 -0400</lastBuildDate><atom:link href="https://karltrowbridge1.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Catching Up on SpotBot</title>
+      <link>https://karltrowbridge1.github.io/blog/catching-up-on-spotbot/</link>
+      <pubDate>Wed, 31 Jul 2024 18:10:27 -0400</pubDate>
+      
+      <guid>https://karltrowbridge1.github.io/blog/catching-up-on-spotbot/</guid>
+      <description>Spotbot 1 Spotbot is a Discord bot that scrapes Spotify links from a Discord channel and automatically adds the songs to a set Spotify playlist. Users must set up and host the bot on their own hardware. To authenticate, user login with a Spotify account and set all parameters in a JSON file. In its original state the bot utilizes files for storage of links sent in the chat.
+When Matt, my college friend started applying to jobs he wanted to again start development to have a project to talk about in interviews.</description>
+    </item>
+    
     <item>
       <title>Firstpost</title>
       <link>https://karltrowbridge1.github.io/blog/firstpost/</link>
