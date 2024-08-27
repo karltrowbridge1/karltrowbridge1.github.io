@@ -2,36 +2,36 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Blogs on Karl Trowbridge Portfolio</title>
-    <link>http://localhost:1313/blog/</link>
+    <link>https://karltrowbridge1.github.io/blog/</link>
     <description>Recent content in Blogs on Karl Trowbridge Portfolio</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 27 Aug 2024 17:51:26 -0400</lastBuildDate><atom:link href="http://localhost:1313/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 27 Aug 2024 17:51:26 -0400</lastBuildDate><atom:link href="https://karltrowbridge1.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>John the Ripper</title>
-      <link>http://localhost:1313/blog/john/john-the-ripper/</link>
+      <link>https://karltrowbridge1.github.io/blog/john/john-the-ripper/</link>
       <pubDate>Tue, 27 Aug 2024 17:51:26 -0400</pubDate>
       
-      <guid>http://localhost:1313/blog/john/john-the-ripper/</guid>
+      <guid>https://karltrowbridge1.github.io/blog/john/john-the-ripper/</guid>
       <description>A writeup on how I used John the Ripper in a CTF to crack a zip file.</description>
     </item>
     
     <item>
       <title>Catching Up on SpotBot</title>
-      <link>http://localhost:1313/blog/spotbot1/catching-up-on-spotbot/</link>
+      <link>https://karltrowbridge1.github.io/blog/spotbot1/catching-up-on-spotbot/</link>
       <pubDate>Wed, 31 Jul 2024 18:10:27 -0400</pubDate>
       
-      <guid>http://localhost:1313/blog/spotbot1/catching-up-on-spotbot/</guid>
+      <guid>https://karltrowbridge1.github.io/blog/spotbot1/catching-up-on-spotbot/</guid>
       <description>Spotbot 1 Spotbot is a Discord bot that scrapes Spotify links from a Discord channel and automatically adds the songs to a set Spotify playlist. Users must set up and host the bot on their own hardware. To authenticate, user login with a Spotify account and set all parameters in a JSON file. In its original state the bot utilizes files for storage of links sent in the chat.
 When Matt, my college friend started applying to jobs he wanted to again start development to have a project to talk about in interviews.</description>
     </item>
     
     <item>
       <title>Firstpost</title>
-      <link>http://localhost:1313/blog/blog1/firstpost/</link>
+      <link>https://karltrowbridge1.github.io/blog/blog1/firstpost/</link>
       <pubDate>Mon, 29 Jul 2024 14:24:35 -0400</pubDate>
       
-      <guid>http://localhost:1313/blog/blog1/firstpost/</guid>
+      <guid>https://karltrowbridge1.github.io/blog/blog1/firstpost/</guid>
       <description>This is my first post on the blog I wanted to create a place for me to talk about weekly or monthly progress made in my free time. As of right now, I am curretnly working on a project called spotbot, and studying for a certification called PJPT along side my brother, a cybersecurity professional. Instead of flooding my LinkedIn with posts about things like this, I thought I would blog about it instead and maybe post about big milestones in this blog on said LinkedIn.</description>
     </item>
     
