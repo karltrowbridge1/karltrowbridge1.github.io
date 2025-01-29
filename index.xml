@@ -2,64 +2,64 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Karl Trowbridge Portfolio</title>
-    <link>http://karltrowbridge1.github.io/</link>
+    <link>https://karltrowbridge1.github.io/</link>
     <description>Recent content on Karl Trowbridge Portfolio</description>
-    <generator>Hugo -- 0.141.0</generator>
+    <generator>Hugo -- 0.142.0</generator>
     <language>en</language>
     <lastBuildDate>Tue, 28 Jan 2025 14:22:07 -0500</lastBuildDate>
-    <atom:link href="http://karltrowbridge1.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://karltrowbridge1.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Building a Vaulted Tokenization Service With Kubernetes</title>
-      <link>http://karltrowbridge1.github.io/blog/buildingavaultedtokenizationservicewithkubernetes/building-a-vaulted-tokenization-service-with-kubernetes/</link>
+      <link>https://karltrowbridge1.github.io/blog/buildingavaultedtokenizationservicewithkubernetes/building-a-vaulted-tokenization-service-with-kubernetes/</link>
       <pubDate>Tue, 28 Jan 2025 14:22:07 -0500</pubDate>
-      <guid>http://karltrowbridge1.github.io/blog/buildingavaultedtokenizationservicewithkubernetes/building-a-vaulted-tokenization-service-with-kubernetes/</guid>
+      <guid>https://karltrowbridge1.github.io/blog/buildingavaultedtokenizationservicewithkubernetes/building-a-vaulted-tokenization-service-with-kubernetes/</guid>
       <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;Tokenization is a process that replaces sensitive data with non-sensitive data, typically using a reference token that maps back to the original data. This is a practice that is part of secrets management, a method of secretly storing, accessing, and managing digital secrets.&lt;/p&gt;
 &lt;p&gt;In my pursuit of learning more about DevSecOps, I wanted to get my hands on some Kubernetes work to learn about the deployment, scaling, and management of containerized applications. Kubernetes was chosen for its ability to manage containerized applications specifically at scale. This makes it a valuable skill to have in DevOps.&lt;/p&gt;</description>
     </item>
     <item>
       <title>SpotBot Docker Container</title>
-      <link>http://karltrowbridge1.github.io/blog/spotbotdocker/spotbot_docker/</link>
+      <link>https://karltrowbridge1.github.io/blog/spotbotdocker/spotbot_docker/</link>
       <pubDate>Mon, 20 Jan 2025 11:11:20 -0500</pubDate>
-      <guid>http://karltrowbridge1.github.io/blog/spotbotdocker/spotbot_docker/</guid>
+      <guid>https://karltrowbridge1.github.io/blog/spotbotdocker/spotbot_docker/</guid>
       <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;A few friends and I are working on an open-source project called &lt;a href=&#34;https://karltrowbridge1.github.io/projects/spotbot/&#34;&gt;SpotBot&lt;/a&gt;. The best description of the project is &amp;ldquo;an overengineered shared playlist.&amp;rdquo; While working on this project, things became a little convoluted. Initially, we had issues with the application running properly on Linux. I took the initiative to test the entire application on a virtual machine running Debian to ensure everything functioned correctly in a Linux environment. Here&amp;rsquo;s how the process went:&lt;/p&gt;</description>
     </item>
     <item>
       <title>John the Ripper</title>
-      <link>http://karltrowbridge1.github.io/blog/john/john-the-ripper/</link>
+      <link>https://karltrowbridge1.github.io/blog/john/john-the-ripper/</link>
       <pubDate>Tue, 27 Aug 2024 17:51:26 -0400</pubDate>
-      <guid>http://karltrowbridge1.github.io/blog/john/john-the-ripper/</guid>
+      <guid>https://karltrowbridge1.github.io/blog/john/john-the-ripper/</guid>
       <description>A writeup on how I used John the Ripper in a CTF to crack a zip file.</description>
     </item>
     <item>
       <title>PJPT</title>
-      <link>http://karltrowbridge1.github.io/projects/pjpt/</link>
+      <link>https://karltrowbridge1.github.io/projects/pjpt/</link>
       <pubDate>Thu, 01 Aug 2024 00:00:00 +0000</pubDate>
-      <guid>http://karltrowbridge1.github.io/projects/pjpt/</guid>
+      <guid>https://karltrowbridge1.github.io/projects/pjpt/</guid>
       <description>The Practical Junior Penetration Tester (PJPT) certification is a beginner-level penetration testing exam experience.</description>
     </item>
     <item>
       <title>SpotBot</title>
-      <link>http://karltrowbridge1.github.io/projects/spotbot/</link>
+      <link>https://karltrowbridge1.github.io/projects/spotbot/</link>
       <pubDate>Thu, 01 Aug 2024 00:00:00 +0000</pubDate>
-      <guid>http://karltrowbridge1.github.io/projects/spotbot/</guid>
+      <guid>https://karltrowbridge1.github.io/projects/spotbot/</guid>
       <description>A discord bot that scrapes users Spotify links from a server and automatically adds songs to a Spotify Playlist.</description>
     </item>
     <item>
       <title>Catching Up on SpotBot</title>
-      <link>http://karltrowbridge1.github.io/blog/spotbot1/catching-up-on-spotbot/</link>
+      <link>https://karltrowbridge1.github.io/blog/spotbot1/catching-up-on-spotbot/</link>
       <pubDate>Wed, 31 Jul 2024 18:10:27 -0400</pubDate>
-      <guid>http://karltrowbridge1.github.io/blog/spotbot1/catching-up-on-spotbot/</guid>
+      <guid>https://karltrowbridge1.github.io/blog/spotbot1/catching-up-on-spotbot/</guid>
       <description>&lt;h1 id=&#34;spotbot-1&#34;&gt;Spotbot 1&lt;/h1&gt;
 &lt;p&gt;Spotbot is a Discord bot that scrapes Spotify links from a Discord channel and automatically adds the songs to a set Spotify playlist. Users must set up and host the bot on their own hardware. To authenticate, user login with a Spotify account and set all parameters in a JSON file. In its original state the bot utilizes files for storage of links sent in the chat.&lt;/p&gt;
 &lt;p&gt;When Matt, my college friend started applying to jobs he wanted to again start development to have a project to talk about in interviews. He decided to ask for help from some of his friends and create a new GitHub for use to work on.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Firstpost</title>
-      <link>http://karltrowbridge1.github.io/blog/blog1/firstpost/</link>
+      <link>https://karltrowbridge1.github.io/blog/blog1/firstpost/</link>
       <pubDate>Mon, 29 Jul 2024 14:24:35 -0400</pubDate>
-      <guid>http://karltrowbridge1.github.io/blog/blog1/firstpost/</guid>
+      <guid>https://karltrowbridge1.github.io/blog/blog1/firstpost/</guid>
       <description>&lt;h2 id=&#34;this-is-my-first-post-on-the-blog&#34;&gt;This is my first post on the blog&lt;/h2&gt;
 &lt;p&gt;I wanted to create a place for me to talk about weekly or monthly progress made in my free time. As of right now, I am curretnly working on a project called &lt;a href=&#34;https://github.com/wildxmxtt/spotbot2&#34;&gt;spotbot&lt;/a&gt;, and studying for a certification called &lt;a href=&#34;https://certifications.tcm-sec.com/pjpt/&#34;&gt;PJPT&lt;/a&gt; along side my brother, a cybersecurity professional. Instead of flooding my LinkedIn with posts about things like this, I thought I would blog about it instead and maybe post about big milestones in this blog on said LinkedIn. We&amp;rsquo;ll see what I get up to!&lt;/p&gt;</description>
     </item>
