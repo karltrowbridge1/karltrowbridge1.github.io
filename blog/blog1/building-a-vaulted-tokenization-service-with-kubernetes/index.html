@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Building a Vaulted Tokenization Service With Kubernetes | Karl Trowbridge Portfolio</title>
+<meta name="keywords" content="">
+<meta name="description" content="Introduction Tokenization is a process that replaces sensitive data with non-sensitive data, typically using a reference token that maps back to the original data. This is a process that is part of secrets management, the process of secretly storing, accessing, and managing digital secrets.
+In my pursuit of learning more about DevSecOps, I wanted to get my hands on some Kubernetes work to learn about the deployment, scaling, and management of containerized applications.">
+<meta name="author" content="Karl Trowbridge">
+<link rel="canonical" href="http://localhost:1313/blog/blog1/building-a-vaulted-tokenization-service-with-kubernetes/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.54405a410796490bc874ab6181fac9b675753cc2b91375d8f882566459eca428.css" integrity="sha256-VEBaQQeWSQvIdKthgfrJtnV1PMK5E3XY&#43;IJWZFnspCg=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/blog/blog1/building-a-vaulted-tokenization-service-with-kubernetes/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+  
+
+<meta property="og:title" content="Building a Vaulted Tokenization Service With Kubernetes" />
+<meta property="og:description" content="Introduction Tokenization is a process that replaces sensitive data with non-sensitive data, typically using a reference token that maps back to the original data. This is a process that is part of secrets management, the process of secretly storing, accessing, and managing digital secrets.
+In my pursuit of learning more about DevSecOps, I wanted to get my hands on some Kubernetes work to learn about the deployment, scaling, and management of containerized applications." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/blog/blog1/building-a-vaulted-tokenization-service-with-kubernetes/" />
+<meta property="og:image" content="http://localhost:1313/kubernetes.png" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2025-01-28T14:22:07-05:00" />
+<meta property="article:modified_time" content="2025-01-28T14:22:07-05:00" /><meta property="og:site_name" content="The Portfolio" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="http://localhost:1313/kubernetes.png" />
+<meta name="twitter:title" content="Building a Vaulted Tokenization Service With Kubernetes"/>
+<meta name="twitter:description" content="Introduction Tokenization is a process that replaces sensitive data with non-sensitive data, typically using a reference token that maps back to the original data. This is a process that is part of secrets management, the process of secretly storing, accessing, and managing digital secrets.
+In my pursuit of learning more about DevSecOps, I wanted to get my hands on some Kubernetes work to learn about the deployment, scaling, and management of containerized applications."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Blogs",
+      "item": "http://localhost:1313/blog/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Building a Vaulted Tokenization Service With Kubernetes",
+      "item": "http://localhost:1313/blog/blog1/building-a-vaulted-tokenization-service-with-kubernetes/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Building a Vaulted Tokenization Service With Kubernetes",
+  "name": "Building a Vaulted Tokenization Service With Kubernetes",
+  "description": "Introduction Tokenization is a process that replaces sensitive data with non-sensitive data, typically using a reference token that maps back to the original data. This is a process that is part of secrets management, the process of secretly storing, accessing, and managing digital secrets.\nIn my pursuit of learning more about DevSecOps, I wanted to get my hands on some Kubernetes work to learn about the deployment, scaling, and management of containerized applications.",
+  "keywords": [
+    
+  ],
+  "articleBody": "Introduction Tokenization is a process that replaces sensitive data with non-sensitive data, typically using a reference token that maps back to the original data. This is a process that is part of secrets management, the process of secretly storing, accessing, and managing digital secrets.\nIn my pursuit of learning more about DevSecOps, I wanted to get my hands on some Kubernetes work to learn about the deployment, scaling, and management of containerized applications. Kubernetes was chosen for its ability to manage containerized applications specifically at scale. This makes it a valuable skill to have in DevOps.\nIn the lab covered in this post, we will create a simplified version of a vaulted tokenization service, containerize it, and host it using Kubernetes.\nTechnology Stack For the tokenization service, I created a simple flask API that tokenizes information, stores it, and allows the information to be detokenized and retrieved. This application came to mind as a simple API I could set up, and is even reminiscent of the capstone work from senior year!\nTo set up Kubernetes I used Minikube. Minikube is an open source tool that allows developers to spin up a local cluster, eliminating the cost and complexity of the cloud when testing. For development, this tool is invaluable.\nFinally for containerization, like last weeks Lab I am using Docker.\nTokenization Workflow The tokenization service supports two functions:\nTokenization: Users send a POST request with a name and data. The data is encrypted using a public key and stored in a YAML file alongside the token name. Detokenization: Users send a POST request with a name. The token associated with the name is retrieved from the YAML file, decrypted using the private key, and returned to the user. Setting Up Kubernetes To host this with Kubernetes, we first create a cluster using Minikube.\nminikube start –driver=docker This will spin up the Kubernetes cluster, preparing us to load pods with containers to run and administrate. To achieve this, we must create YAML files to configure our pods, services, and deployment.\nThe first YAML file is the deployment.yaml file. Some of the most important specifications in this file are the declaration of container name and image for our application, container port for its networking, and volume mounts for access to saving tokens. More specifics on this can be found here\ndeployment.yaml:\napiVersion: apps/v1 kind: Deployment metadata: name: tokenization-service spec: replicas: 1 selector: matchLabels: app: tokenization-service template: metadata: labels: app: tokenization-service spec: containers: - name: tokenization-service image: tokenization-service:latest imagePullPolicy: Never ports: - containerPort: 5000 volumeMounts: - name: app-data mountPath: /app/saves volumes: - name: app-data emptyDir: {} NOTE: the volumeMounts ensures the file for token storage is persistent. This deployment also has imagePullPolicy: Never so as to not hang in attempting to pull an image.\nThe next YAML file is the service.yaml file. This, like the previous file, offers configuration but for the service API for Kubernetes. A service makes an endpoint and declares how the pods are accessible. In our case, we specify some metadata, port protocol, and port numbers.\nservice.yaml:\napiVersion: v1 kind: Service metadata: name: tokenization-service spec: selector: app: tokenization-service ports: - protocol: TCP port: 5000 targetPort: 5000 type: NodePort Deployment For this lab environment, the Docker image is loaded directly into the Minikube cluster. In a production environment, images are typically hosted in a container registry such as Docker Hub or AWS ECR.\nTo begin deployment, the docker image is built and loaded locally.\ndocker build -t tokenization-service . minikube image load tokenization-service:latest We then apply our Kubernetes configurations, deployment.yaml and service.yaml.\nkubectl apply -f deployment.yaml kubectl apply -f service.yaml This will begin the creation of the pods we specified and start containers for the service. Just like that a single node Kubernetes cluster running a custom application.\nTokenization Detokenization Lessons Learned Kubernetes is highly configurable. This means there are many opportunities to make mistakes. I spent a lot of time chasing errors and going over configuration files. Because of this granularity in configuration there exists many Kubernetes tools! This article is a great introduciton to that world.\nConclusion This project provided me with valuable experience in Kubernetes and DevSecOps principles. I have a much better understanding of Kubernetes and some new found comfort working with it.\n",
+  "wordCount" : "707",
+  "inLanguage": "en",
+  "image":"http://localhost:1313/kubernetes.png","datePublished": "2025-01-28T14:22:07-05:00",
+  "dateModified": "2025-01-28T14:22:07-05:00",
+  "author":{
+    "@type": "Person",
+    "name": "Karl Trowbridge"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/blog/blog1/building-a-vaulted-tokenization-service-with-kubernetes/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Karl Trowbridge Portfolio",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class=" dark" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Karl Trowbridge Portfolio (Alt + H)">Karl Trowbridge Portfolio</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/projects/" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/blog/" title="Blog">
+                    <span>Blog</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.linkedin.com/in/karl-trowbridge-cyber/" title="LinkedIn">
+                    <span>LinkedIn</span>&nbsp;
+                    <svg fill="none" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" height="12" width="12">
+                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                        <path d="M15 3h6v6"></path>
+                        <path d="M10 14L21 3"></path>
+                    </svg>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/blog/">Blogs</a></div>
+    <h1 class="post-title entry-hint-parent">
+      Building a Vaulted Tokenization Service With Kubernetes
+    </h1>
+  </header> 
+<figure class="entry-cover"><img loading="eager" src="http://localhost:1313/kubernetes.png" alt="">
+        
+</figure><div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#technology-stack">Technology Stack</a></li>
+    <li><a href="#tokenization-workflow">Tokenization Workflow</a></li>
+    <li><a href="#setting-up-kubernetes">Setting Up Kubernetes</a></li>
+    <li><a href="#deployment">Deployment</a>
+      <ul>
+        <li><a href="#tokenization">Tokenization</a></li>
+        <li><a href="#detokenization">Detokenization</a></li>
+      </ul>
+    </li>
+    <li><a href="#lessons-learned">Lessons Learned</a></li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h2 id="introduction">Introduction<a hidden class="anchor" aria-hidden="true" href="#introduction">#</a></h2>
+<p>Tokenization is a process that replaces sensitive data with non-sensitive data, typically using a reference token that maps back to the original data. This is a process that is part of secrets management, the process of secretly storing, accessing, and managing digital secrets.</p>
+<p>In my pursuit of learning more about DevSecOps, I wanted to get my hands on some Kubernetes work to learn about the deployment, scaling, and management of containerized applications. Kubernetes was chosen for its ability to manage containerized applications specifically at scale. This makes it a valuable skill to have in DevOps.</p>
+<p>In the lab covered in this post, we will create a simplified version of a vaulted tokenization service, containerize it, and host it using Kubernetes.</p>
+<h2 id="technology-stack">Technology Stack<a hidden class="anchor" aria-hidden="true" href="#technology-stack">#</a></h2>
+<p>For the tokenization service, I created a simple flask API that tokenizes information, stores it, and allows the information to be detokenized and retrieved. This application came to mind as a simple API I could set up, and is even reminiscent of the capstone work from senior year!</p>
+<p>To set up Kubernetes I used Minikube. Minikube is an open source tool that allows developers to spin up a local cluster, eliminating the cost and complexity of the cloud when testing. For development, this tool is invaluable.</p>
+<p>Finally for containerization, like last weeks Lab I am using Docker.</p>
+<h2 id="tokenization-workflow">Tokenization Workflow<a hidden class="anchor" aria-hidden="true" href="#tokenization-workflow">#</a></h2>
+<p>The tokenization service supports two functions:</p>
+<ul>
+<li>Tokenization: Users send a <code>POST</code> request with a  <code>name</code> and <code>data</code>. The data is encrypted using a public key and stored in a YAML file alongside the token name.</li>
+<li>Detokenization: Users send a <code>POST</code> request with a <code>name</code>. The token associated with the name is retrieved from the YAML file, decrypted using the private key, and returned to the user.</li>
+</ul>
+<h2 id="setting-up-kubernetes">Setting Up Kubernetes<a hidden class="anchor" aria-hidden="true" href="#setting-up-kubernetes">#</a></h2>
+<p>To host this with Kubernetes, we first create a cluster using Minikube.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">minikube</span> <span class="nb">start </span><span class="err">–</span><span class="n">driver</span><span class="p">=</span><span class="n">docker</span>
+</span></span></code></pre></div><p>This will spin up the Kubernetes cluster, preparing us to load pods with containers to run and administrate. To achieve this, we must create YAML files to configure our pods, services, and deployment.</p>
+<p>The first YAML file is the deployment.yaml file. Some of the most important specifications in this file are the declaration of container name and image for our application, container port for its networking, and volume mounts for access to saving tokens. More specifics on this can be found <a href="https://kubernetes.io/docs/concepts/workloads/controllers/deployment/">here</a></p>
+<p><code>deployment.yaml</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-YAML" data-lang="YAML"><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">apps/v1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Deployment</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">tokenization-service</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">replicas</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">selector</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">matchLabels</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l">tokenization-service</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">template</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">labels</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l">tokenization-service</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">containers</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">tokenization-service</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">tokenization-service:latest</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">imagePullPolicy</span><span class="p">:</span><span class="w"> </span><span class="l">Never</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">containerPort</span><span class="p">:</span><span class="w"> </span><span class="m">5000</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">volumeMounts</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">app-data</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">mountPath</span><span class="p">:</span><span class="w"> </span><span class="l">/app/saves</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">app-data</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">emptyDir</span><span class="p">:</span><span class="w"> </span>{}<span class="w">
+</span></span></span></code></pre></div><p>NOTE: the <code>volumeMounts</code> ensures the file for token storage is persistent. This deployment also has <code>imagePullPolicy: Never</code> so as to not hang in attempting to pull an image.</p>
+<p>The next YAML file is the service.yaml file. This, like the previous file, offers configuration but for the service API for Kubernetes. A service makes an endpoint and declares how the pods are accessible. In our case, we specify some metadata, port protocol, and port numbers.</p>
+<p><code>service.yaml</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-YAML" data-lang="YAML"><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">v1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Service</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">tokenization-service</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">selector</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l">tokenization-service</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l">TCP</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">5000</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">targetPort</span><span class="p">:</span><span class="w"> </span><span class="m">5000</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">NodePort</span><span class="w">
+</span></span></span></code></pre></div><h2 id="deployment">Deployment<a hidden class="anchor" aria-hidden="true" href="#deployment">#</a></h2>
+<p>For this lab environment, the Docker image is loaded directly into the Minikube cluster. In a production environment, images are typically hosted in a container registry such as Docker Hub or AWS ECR.</p>
+<p>To begin deployment, the docker image is built and loaded locally.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">docker</span> <span class="n">build</span> <span class="n">-t</span> <span class="nb">tokenization-service</span> <span class="p">.</span>
+</span></span><span class="line"><span class="cl"><span class="n">minikube</span> <span class="n">image</span> <span class="n">load</span> <span class="nb">tokenization-service</span><span class="err">:</span><span class="n">latest</span>
+</span></span></code></pre></div><p>We then apply our Kubernetes configurations, <code>deployment.yaml</code> and <code>service.yaml</code>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">kubectl</span> <span class="n">apply</span> <span class="o">-f</span> <span class="n">deployment</span><span class="p">.</span><span class="py">yaml</span>
+</span></span><span class="line"><span class="cl"><span class="n">kubectl</span> <span class="n">apply</span> <span class="o">-f</span> <span class="n">service</span><span class="p">.</span><span class="py">yaml</span>
+</span></span></code></pre></div><p>This will begin the creation of the pods we specified and start containers for the service. Just like that a single node Kubernetes cluster running a custom application.</p>
+<h3 id="tokenization">Tokenization<a hidden class="anchor" aria-hidden="true" href="#tokenization">#</a></h3>
+<p><img loading="lazy" src="tokenization.png" alt="tokenization"  />
+</p>
+<h3 id="detokenization">Detokenization<a hidden class="anchor" aria-hidden="true" href="#detokenization">#</a></h3>
+<p><img loading="lazy" src="/content/blog/BuildingaVaultedTokenizationServiceWithKubernetes/detokenization.png" alt="detokenization"  />
+</p>
+<h2 id="lessons-learned">Lessons Learned<a hidden class="anchor" aria-hidden="true" href="#lessons-learned">#</a></h2>
+<p>Kubernetes is highly configurable. This means there are many opportunities to make mistakes. I spent a lot of time chasing errors and going over configuration files. Because of this granularity in configuration there exists many Kubernetes tools! <a href="https://medium.com/@petolofsson/supercharge-your-kubernetes-workflow-with-essential-tools-starship-kubectx-kubecolor-and-k9s-c2ce5eb88d23">This</a> article is a great introduciton to that world.</p>
+<h2 id="conclusion">Conclusion<a hidden class="anchor" aria-hidden="true" href="#conclusion">#</a></h2>
+<p>This project provided me with valuable experience in Kubernetes and DevSecOps principles. I have a much better understanding of Kubernetes and some new found comfort working with it.</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="http://localhost:1313/">Karl Trowbridge Portfolio</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>
