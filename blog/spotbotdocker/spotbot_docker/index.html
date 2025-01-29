@@ -10,16 +10,16 @@
 <meta name="description" content="Introduction
 A few friends and I are working on an open-source project called SpotBot. The best description of the project is &ldquo;an overengineered shared playlist.&rdquo; While working on this project, things became a little convoluted. Initially, we had issues with the application running properly on Linux. I took the initiative to test the entire application on a virtual machine running Debian to ensure everything functioned correctly in a Linux environment. Here&rsquo;s how the process went:">
 <meta name="author" content="Karl Trowbridge">
-<link rel="canonical" href="https://karltrowbridge1.github.io/blog/spotbotdocker/spotbot_docker/">
+<link rel="canonical" href="http://karltrowbridge1.github.io/blog/spotbotdocker/spotbot_docker/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.9de45e225101e4f99701d2b68fc6b8a1ef6027928be6391fa15bf7f56326c909.css" integrity="sha256-neReIlEB5PmXAdK2j8a4oe9gJ5KL5jkfoVv39WMmyQk=" rel="preload stylesheet" as="style">
-<link rel="icon" href="https://karltrowbridge1.github.io/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="https://karltrowbridge1.github.io/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://karltrowbridge1.github.io/favicon-32x32.png">
-<link rel="apple-touch-icon" href="https://karltrowbridge1.github.io/apple-touch-icon.png">
-<link rel="mask-icon" href="https://karltrowbridge1.github.io/safari-pinned-tab.svg">
+<link rel="icon" href="http://karltrowbridge1.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://karltrowbridge1.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://karltrowbridge1.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://karltrowbridge1.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="http://karltrowbridge1.github.io/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="https://karltrowbridge1.github.io/blog/spotbotdocker/spotbot_docker/">
+<link rel="alternate" hreflang="en" href="http://karltrowbridge1.github.io/blog/spotbotdocker/spotbot_docker/">
 <noscript>
     <style>
         #theme-toggle,
@@ -28,7 +28,7 @@ A few friends and I are working on an open-source project called SpotBot. The be
         }
 
     </style>
-</noscript><meta property="og:url" content="https://karltrowbridge1.github.io/blog/spotbotdocker/spotbot_docker/">
+</noscript><meta property="og:url" content="http://karltrowbridge1.github.io/blog/spotbotdocker/spotbot_docker/">
   <meta property="og:site_name" content="Karl Trowbridge Portfolio">
   <meta property="og:title" content="SpotBot Docker Container">
   <meta property="og:description" content="Introduction A few friends and I are working on an open-source project called SpotBot. The best description of the project is “an overengineered shared playlist.” While working on this project, things became a little convoluted. Initially, we had issues with the application running properly on Linux. I took the initiative to test the entire application on a virtual machine running Debian to ensure everything functioned correctly in a Linux environment. Here’s how the process went:">
@@ -37,9 +37,9 @@ A few friends and I are working on an open-source project called SpotBot. The be
     <meta property="article:section" content="blog">
     <meta property="article:published_time" content="2025-01-20T11:11:20-05:00">
     <meta property="article:modified_time" content="2025-01-20T11:11:20-05:00">
-    <meta property="og:image" content="https://karltrowbridge1.github.io/images/docker.jpg">
+    <meta property="og:image" content="http://karltrowbridge1.github.io/images/docker.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://karltrowbridge1.github.io/images/docker.jpg">
+<meta name="twitter:image" content="http://karltrowbridge1.github.io/images/docker.jpg">
 <meta name="twitter:title" content="SpotBot Docker Container">
 <meta name="twitter:description" content="Introduction
 A few friends and I are working on an open-source project called SpotBot. The best description of the project is &ldquo;an overengineered shared playlist.&rdquo; While working on this project, things became a little convoluted. Initially, we had issues with the application running properly on Linux. I took the initiative to test the entire application on a virtual machine running Debian to ensure everything functioned correctly in a Linux environment. Here&rsquo;s how the process went:">
@@ -54,13 +54,13 @@ A few friends and I are working on an open-source project called SpotBot. The be
       "@type": "ListItem",
       "position":  1 ,
       "name": "Blogs",
-      "item": "https://karltrowbridge1.github.io/blog/"
+      "item": "http://karltrowbridge1.github.io/blog/"
     }, 
     {
       "@type": "ListItem",
       "position":  2 ,
       "name": "SpotBot Docker Container",
-      "item": "https://karltrowbridge1.github.io/blog/spotbotdocker/spotbot_docker/"
+      "item": "http://karltrowbridge1.github.io/blog/spotbotdocker/spotbot_docker/"
     }
   ]
 }
@@ -78,7 +78,7 @@ A few friends and I are working on an open-source project called SpotBot. The be
   "articleBody": "Introduction A few friends and I are working on an open-source project called SpotBot. The best description of the project is “an overengineered shared playlist.” While working on this project, things became a little convoluted. Initially, we had issues with the application running properly on Linux. I took the initiative to test the entire application on a virtual machine running Debian to ensure everything functioned correctly in a Linux environment. Here’s how the process went:\nStart the VM Delete the old repo that was locally cloned from GitHub Enter the VENV Re-clone the repo that needs to be tested Move the configuration file to the directory Begin testing I imgaine anyone who works in automation is disappointed.\nDocker quickly became the obvious choice to automate this entire process. Through this endeavor, I learned the benefits of Docker’s lightweight nature, the usability of volumes for a better user experience, and how application concerns often extend beyond the end user.\nA link to the SpotBot Docker testing container can be found here.\nLightweight Containers Initially, the container I created utilized Ubuntu, which was very straightforward to work with. Many of the tools the application relies on were already included in the image, making build times fast.\nAfter sharing my work with a friend more experienced with Docker, he provided feedback that shaped the lessons in this post. He suggested using Alpine or Manjaro Linux instead.\nI transitioned to Alpine, which required modifying several aspects of the Dockerfile. While this added steps to install additional packages during the build process, it resulted in a container that was much more efficient to run and deploy.\nVolumes To run SpotBot, the administrator needs to configure and provide a JSON file containing setup information. In my first attempt at creating the container, I copied this file into the container via the Dockerfile. However, my friend pointed out that this approach was not best practice. Instead, utilizing a volume allows users to build the image once and run the container with the flexibility to update setup files without rebuilding.\nAfter adjusting the configuration, users can now freely add or change a setup file on the fly via a volume.\nFor ease of use, I created a directory, /app/setup/, for the volume to mount. The container’s run command now requires a volume declaration: -v /path/to/local/dirContainingSetupFile:/app/setup\nThis allows the startup shell script to reference the setup.json file provided by the user.\nIssues in Automation Process An interestign issue with the flask applicaiton used for authentication with the Spotify servers was made apparant when the prompt I had created to close the application after authentication got burried by logs from the flask application.\nTo terminate the process after successful authentication, I used a read statement in the bash script. In classic primitive programming fashion, the application closes when the user hits .\nWhen running SpotBot on bare metal, the webserver is stopped via a keyboard interrupt. While this approach works well enough, it’s a low-priority item on the to-do list. However, creating this Docker container taught me the importance of thinking beyond just the end user to consider system integration and automation. Where a keyboard interrupt worked manually, automated systems may struggle with such a design. This was a small but valuable takeaway.\nConclusion Creating and using this container for fast testing has been an excellent time-saver and learning experience. The ability to spin up and tear down an entire environment in seconds is fantastic. Passing this container between developers has significantly reduced the “it works on my machine” scenarios that lead to broken code being pushed.\nFurthermore, this simple container can serve as a platform to jumpstart a production container, simplifying administration for end users.\nEnjoying this project has inspired me to explore creating a CI/CD pipeline for SpotBot. One step at a time.\n",
   "wordCount" : "635",
   "inLanguage": "en",
-  "image":"https://karltrowbridge1.github.io/images/docker.jpg","datePublished": "2025-01-20T11:11:20-05:00",
+  "image":"http://karltrowbridge1.github.io/images/docker.jpg","datePublished": "2025-01-20T11:11:20-05:00",
   "dateModified": "2025-01-20T11:11:20-05:00",
   "author":{
     "@type": "Person",
@@ -86,14 +86,14 @@ A few friends and I are working on an open-source project called SpotBot. The be
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://karltrowbridge1.github.io/blog/spotbotdocker/spotbot_docker/"
+    "@id": "http://karltrowbridge1.github.io/blog/spotbotdocker/spotbot_docker/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "Karl Trowbridge Portfolio",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://karltrowbridge1.github.io/favicon.ico"
+      "url": "http://karltrowbridge1.github.io/favicon.ico"
     }
   }
 }
@@ -111,7 +111,7 @@ A few friends and I are working on an open-source project called SpotBot. The be
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://karltrowbridge1.github.io/" accesskey="h" title="Karl Trowbridge Portfolio (Alt + H)">Karl Trowbridge Portfolio</a>
+            <a href="http://karltrowbridge1.github.io/" accesskey="h" title="Karl Trowbridge Portfolio (Alt + H)">Karl Trowbridge Portfolio</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -137,12 +137,12 @@ A few friends and I are working on an open-source project called SpotBot. The be
         </div>
         <ul id="menu">
             <li>
-                <a href="https://karltrowbridge1.github.io/projects/" title="Projects">
+                <a href="http://karltrowbridge1.github.io/projects/" title="Projects">
                     <span>Projects</span>
                 </a>
             </li>
             <li>
-                <a href="https://karltrowbridge1.github.io/blog/" title="Blog">
+                <a href="http://karltrowbridge1.github.io/blog/" title="Blog">
                     <span>Blog</span>
                 </a>
             </li>
@@ -164,12 +164,12 @@ A few friends and I are working on an open-source project called SpotBot. The be
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://karltrowbridge1.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://karltrowbridge1.github.io/blog/">Blogs</a></div>
+    <div class="breadcrumbs"><a href="http://karltrowbridge1.github.io/">Home</a>&nbsp;»&nbsp;<a href="http://karltrowbridge1.github.io/blog/">Blogs</a></div>
     <h1 class="post-title entry-hint-parent">
       SpotBot Docker Container
     </h1>
   </header> 
-<figure class="entry-cover"><img loading="eager" src="https://karltrowbridge1.github.io/images/docker.jpg" alt="">
+<figure class="entry-cover"><img loading="eager" src="http://karltrowbridge1.github.io/images/docker.jpg" alt="">
         
 </figure><div class="toc">
     <details >
@@ -233,7 +233,7 @@ A few friends and I are working on an open-source project called SpotBot. The be
     </main>
     
 <footer class="footer">
-        <span>&copy; 2025 <a href="https://karltrowbridge1.github.io/">Karl Trowbridge Portfolio</a></span> · 
+        <span>&copy; 2025 <a href="http://karltrowbridge1.github.io/">Karl Trowbridge Portfolio</a></span> · 
 
     <span>
         Powered by
