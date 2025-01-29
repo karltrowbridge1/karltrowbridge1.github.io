@@ -4,7 +4,7 @@
     <title>Blogs on Karl Trowbridge Portfolio</title>
     <link>http://karltrowbridge1.github.io/blog/</link>
     <description>Recent content in Blogs on Karl Trowbridge Portfolio</description>
-    <generator>Hugo -- 0.141.0</generator>
+    <generator>Hugo -- 0.142.0</generator>
     <language>en</language>
     <lastBuildDate>Tue, 28 Jan 2025 14:22:07 -0500</lastBuildDate>
     <atom:link href="http://karltrowbridge1.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
@@ -14,7 +14,7 @@
       <pubDate>Tue, 28 Jan 2025 14:22:07 -0500</pubDate>
       <guid>http://karltrowbridge1.github.io/blog/buildingavaultedtokenizationservicewithkubernetes/building-a-vaulted-tokenization-service-with-kubernetes/</guid>
       <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;Tokenization is a process that replaces sensitive data with non-sensitive data, typically using a reference token that maps back to the original data. This is a process that is part of secrets management, the process of secretly storing, accessing, and managing digital secrets.&lt;/p&gt;
+&lt;p&gt;Tokenization is a process that replaces sensitive data with non-sensitive data, typically using a reference token that maps back to the original data. This is a practice that is part of secrets management, a method of secretly storing, accessing, and managing digital secrets.&lt;/p&gt;
 &lt;p&gt;In my pursuit of learning more about DevSecOps, I wanted to get my hands on some Kubernetes work to learn about the deployment, scaling, and management of containerized applications. Kubernetes was chosen for its ability to manage containerized applications specifically at scale. This makes it a valuable skill to have in DevOps.&lt;/p&gt;</description>
     </item>
     <item>
