@@ -11,16 +11,16 @@
 Tokenization is a process that replaces sensitive data with non-sensitive data, typically using a reference token that maps back to the original data. This is a practice that is part of secrets management, a method of secretly storing, accessing, and managing digital secrets.
 In my pursuit of learning more about DevSecOps, I wanted to get my hands on some Kubernetes work to learn about the deployment, scaling, and management of containerized applications. Kubernetes was chosen for its ability to manage containerized applications specifically at scale. This makes it a valuable skill to have in DevOps.">
 <meta name="author" content="Karl Trowbridge">
-<link rel="canonical" href="http://karltrowbridge1.github.io/blog/buildingavaultedtokenizationservicewithkubernetes/building-a-vaulted-tokenization-service-with-kubernetes/">
+<link rel="canonical" href="https://karltrowbridge1.github.io/blog/buildingavaultedtokenizationservicewithkubernetes/building-a-vaulted-tokenization-service-with-kubernetes/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.9de45e225101e4f99701d2b68fc6b8a1ef6027928be6391fa15bf7f56326c909.css" integrity="sha256-neReIlEB5PmXAdK2j8a4oe9gJ5KL5jkfoVv39WMmyQk=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://karltrowbridge1.github.io/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://karltrowbridge1.github.io/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://karltrowbridge1.github.io/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://karltrowbridge1.github.io/apple-touch-icon.png">
-<link rel="mask-icon" href="http://karltrowbridge1.github.io/safari-pinned-tab.svg">
+<link rel="icon" href="https://karltrowbridge1.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://karltrowbridge1.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://karltrowbridge1.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://karltrowbridge1.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://karltrowbridge1.github.io/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://karltrowbridge1.github.io/blog/buildingavaultedtokenizationservicewithkubernetes/building-a-vaulted-tokenization-service-with-kubernetes/">
+<link rel="alternate" hreflang="en" href="https://karltrowbridge1.github.io/blog/buildingavaultedtokenizationservicewithkubernetes/building-a-vaulted-tokenization-service-with-kubernetes/">
 <noscript>
     <style>
         #theme-toggle,
@@ -29,7 +29,7 @@ In my pursuit of learning more about DevSecOps, I wanted to get my hands on some
         }
 
     </style>
-</noscript><meta property="og:url" content="http://karltrowbridge1.github.io/blog/buildingavaultedtokenizationservicewithkubernetes/building-a-vaulted-tokenization-service-with-kubernetes/">
+</noscript><meta property="og:url" content="https://karltrowbridge1.github.io/blog/buildingavaultedtokenizationservicewithkubernetes/building-a-vaulted-tokenization-service-with-kubernetes/">
   <meta property="og:site_name" content="Karl Trowbridge Portfolio">
   <meta property="og:title" content="Building a Vaulted Tokenization Service With Kubernetes">
   <meta property="og:description" content="Introduction Tokenization is a process that replaces sensitive data with non-sensitive data, typically using a reference token that maps back to the original data. This is a practice that is part of secrets management, a method of secretly storing, accessing, and managing digital secrets.
@@ -39,9 +39,9 @@ In my pursuit of learning more about DevSecOps, I wanted to get my hands on some
     <meta property="article:section" content="blog">
     <meta property="article:published_time" content="2025-01-28T14:22:07-05:00">
     <meta property="article:modified_time" content="2025-01-28T14:22:07-05:00">
-    <meta property="og:image" content="http://karltrowbridge1.github.io/images/kubernetesLab/kubernetes.png">
+    <meta property="og:image" content="https://karltrowbridge1.github.io/images/kubernetesLab/kubernetes.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://karltrowbridge1.github.io/images/kubernetesLab/kubernetes.png">
+<meta name="twitter:image" content="https://karltrowbridge1.github.io/images/kubernetesLab/kubernetes.png">
 <meta name="twitter:title" content="Building a Vaulted Tokenization Service With Kubernetes">
 <meta name="twitter:description" content="Introduction
 Tokenization is a process that replaces sensitive data with non-sensitive data, typically using a reference token that maps back to the original data. This is a practice that is part of secrets management, a method of secretly storing, accessing, and managing digital secrets.
@@ -57,13 +57,13 @@ In my pursuit of learning more about DevSecOps, I wanted to get my hands on some
       "@type": "ListItem",
       "position":  1 ,
       "name": "Blogs",
-      "item": "http://karltrowbridge1.github.io/blog/"
+      "item": "https://karltrowbridge1.github.io/blog/"
     }, 
     {
       "@type": "ListItem",
       "position":  2 ,
       "name": "Building a Vaulted Tokenization Service With Kubernetes",
-      "item": "http://karltrowbridge1.github.io/blog/buildingavaultedtokenizationservicewithkubernetes/building-a-vaulted-tokenization-service-with-kubernetes/"
+      "item": "https://karltrowbridge1.github.io/blog/buildingavaultedtokenizationservicewithkubernetes/building-a-vaulted-tokenization-service-with-kubernetes/"
     }
   ]
 }
@@ -81,7 +81,7 @@ In my pursuit of learning more about DevSecOps, I wanted to get my hands on some
   "articleBody": "Introduction Tokenization is a process that replaces sensitive data with non-sensitive data, typically using a reference token that maps back to the original data. This is a practice that is part of secrets management, a method of secretly storing, accessing, and managing digital secrets.\nIn my pursuit of learning more about DevSecOps, I wanted to get my hands on some Kubernetes work to learn about the deployment, scaling, and management of containerized applications. Kubernetes was chosen for its ability to manage containerized applications specifically at scale. This makes it a valuable skill to have in DevOps.\nIn the lab covered in this post, we will create a simplified version of a vaulted tokenization service, containerize it, and host it using Kubernetes.\nTechnology Stack For the tokenization service, I created a simple flask API that tokenizes information, stores it, and allows the information to be detokenized and retrieved. This application came to mind as a simple API I could set up, and is even reminiscent of the capstone work from senior year!\nTo set up Kubernetes I used Minikube. Minikube is an open source tool that allows developers to spin up a local cluster, eliminating the cost and complexity of the cloud when testing. For development, this tool is invaluable.\nFinally for containerization, like last weeks Lab I am using Docker.\nTokenization Workflow The tokenization service supports two functions:\nTokenization: Users send a POST request with a name and data. The data is encrypted using a public key and stored in a YAML file alongside the token name. Detokenization: Users send a POST request with a name. The token associated with the name is retrieved from the YAML file, decrypted using the private key, and returned to the user. Setting Up Kubernetes To host this with Kubernetes, we first create a cluster using Minikube.\nminikube start –driver=docker This will spin up the Kubernetes cluster, preparing us to load pods with containers to run and administrate. To achieve this, we must create YAML files to configure our pods, services, and deployment.\nThe first YAML file is the deployment.yaml file. Some of the most important specifications in this file are the declaration of container name and image for our application, container port for its networking, and volume mounts for access to saving tokens. More specifics on this can be found here\ndeployment.yaml:\napiVersion: apps/v1 kind: Deployment metadata: name: tokenization-service spec: replicas: 1 selector: matchLabels: app: tokenization-service template: metadata: labels: app: tokenization-service spec: containers: - name: tokenization-service image: tokenization-service:latest imagePullPolicy: Never ports: - containerPort: 5000 volumeMounts: - name: app-data mountPath: /app/saves volumes: - name: app-data emptyDir: {} NOTE: the volumeMounts ensures the file for token storage is persistent. This deployment also has imagePullPolicy: Never so as to not hang in attempting to pull an image.\nThe next YAML file is the service.yaml file. This, like the previous file, offers configuration but for the service API for Kubernetes. A service makes an endpoint and declares how the pods are accessible. In our case, we specify some metadata, port protocol, and port numbers.\nservice.yaml:\napiVersion: v1 kind: Service metadata: name: tokenization-service spec: selector: app: tokenization-service ports: - protocol: TCP port: 5000 targetPort: 5000 type: NodePort Deployment For this lab environment, the Docker image is loaded directly into the Minikube cluster. In a production environment, images are typically hosted in a container registry such as Docker Hub or AWS ECR.\nTo begin deployment, the docker image is built and loaded locally.\ndocker build -t tokenization-service . minikube image load tokenization-service:latest We then apply our Kubernetes configurations, deployment.yaml and service.yaml.\nkubectl apply -f deployment.yaml kubectl apply -f service.yaml This will begin the creation of the pods we specified and start containers for the service. Just like that a single node Kubernetes cluster running a custom application.\nTokenization Detokenization Lessons Learned Kubernetes is highly configurable. This means there are many opportunities to make mistakes. I spent a lot of time chasing errors and going over configuration files. Because of this granularity in configuration there exists many Kubernetes tools! This article is a great introduciton to that world.\nConclusion This project provided me with valuable experience in Kubernetes and DevSecOps principles. I have a much better understanding of Kubernetes and some new found comfort working with it.\n",
   "wordCount" : "707",
   "inLanguage": "en",
-  "image":"http://karltrowbridge1.github.io/images/kubernetesLab/kubernetes.png","datePublished": "2025-01-28T14:22:07-05:00",
+  "image":"https://karltrowbridge1.github.io/images/kubernetesLab/kubernetes.png","datePublished": "2025-01-28T14:22:07-05:00",
   "dateModified": "2025-01-28T14:22:07-05:00",
   "author":{
     "@type": "Person",
@@ -89,14 +89,14 @@ In my pursuit of learning more about DevSecOps, I wanted to get my hands on some
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "http://karltrowbridge1.github.io/blog/buildingavaultedtokenizationservicewithkubernetes/building-a-vaulted-tokenization-service-with-kubernetes/"
+    "@id": "https://karltrowbridge1.github.io/blog/buildingavaultedtokenizationservicewithkubernetes/building-a-vaulted-tokenization-service-with-kubernetes/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "Karl Trowbridge Portfolio",
     "logo": {
       "@type": "ImageObject",
-      "url": "http://karltrowbridge1.github.io/favicon.ico"
+      "url": "https://karltrowbridge1.github.io/favicon.ico"
     }
   }
 }
@@ -114,7 +114,7 @@ In my pursuit of learning more about DevSecOps, I wanted to get my hands on some
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://karltrowbridge1.github.io/" accesskey="h" title="Karl Trowbridge Portfolio (Alt + H)">Karl Trowbridge Portfolio</a>
+            <a href="https://karltrowbridge1.github.io/" accesskey="h" title="Karl Trowbridge Portfolio (Alt + H)">Karl Trowbridge Portfolio</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -140,12 +140,12 @@ In my pursuit of learning more about DevSecOps, I wanted to get my hands on some
         </div>
         <ul id="menu">
             <li>
-                <a href="http://karltrowbridge1.github.io/projects/" title="Projects">
+                <a href="https://karltrowbridge1.github.io/projects/" title="Projects">
                     <span>Projects</span>
                 </a>
             </li>
             <li>
-                <a href="http://karltrowbridge1.github.io/blog/" title="Blog">
+                <a href="https://karltrowbridge1.github.io/blog/" title="Blog">
                     <span>Blog</span>
                 </a>
             </li>
@@ -167,12 +167,12 @@ In my pursuit of learning more about DevSecOps, I wanted to get my hands on some
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="http://karltrowbridge1.github.io/">Home</a>&nbsp;»&nbsp;<a href="http://karltrowbridge1.github.io/blog/">Blogs</a></div>
+    <div class="breadcrumbs"><a href="https://karltrowbridge1.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://karltrowbridge1.github.io/blog/">Blogs</a></div>
     <h1 class="post-title entry-hint-parent">
       Building a Vaulted Tokenization Service With Kubernetes
     </h1>
   </header> 
-<figure class="entry-cover"><img loading="eager" src="http://karltrowbridge1.github.io/images/kubernetesLab/kubernetes.png" alt="">
+<figure class="entry-cover"><img loading="eager" src="https://karltrowbridge1.github.io/images/kubernetesLab/kubernetes.png" alt="">
         
 </figure><div class="toc">
     <details >
@@ -290,7 +290,7 @@ In my pursuit of learning more about DevSecOps, I wanted to get my hands on some
     </main>
     
 <footer class="footer">
-        <span>&copy; 2025 <a href="http://karltrowbridge1.github.io/">Karl Trowbridge Portfolio</a></span> · 
+        <span>&copy; 2025 <a href="https://karltrowbridge1.github.io/">Karl Trowbridge Portfolio</a></span> · 
 
     <span>
         Powered by
