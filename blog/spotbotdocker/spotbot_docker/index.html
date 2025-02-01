@@ -1,197 +1,171 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="en">
 
-<head><meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="index, follow">
-<title>SpotBot Docker Container | Karl Trowbridge Portfolio</title>
-<meta name="keywords" content="">
-<meta name="description" content="Introduction
-A few friends and I are working on an open-source project called SpotBot. The best description of the project is &ldquo;an overengineered shared playlist.&rdquo; While working on this project, things became a little convoluted. Initially, we had issues with the application running properly on Linux. I took the initiative to test the entire application on a virtual machine running Debian to ensure everything functioned correctly in a Linux environment. Here&rsquo;s how the process went:">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  SpotBot Docker Container · Karl Trowbridge | Portfolio
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
 <meta name="author" content="Karl Trowbridge">
-<link rel="canonical" href="https://karltrowbridge1.github.io/blog/spotbotdocker/spotbot_docker/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.9de45e225101e4f99701d2b68fc6b8a1ef6027928be6391fa15bf7f56326c909.css" integrity="sha256-neReIlEB5PmXAdK2j8a4oe9gJ5KL5jkfoVv39WMmyQk=" rel="preload stylesheet" as="style">
-<link rel="icon" href="https://karltrowbridge1.github.io/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="https://karltrowbridge1.github.io/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://karltrowbridge1.github.io/favicon-32x32.png">
-<link rel="apple-touch-icon" href="https://karltrowbridge1.github.io/apple-touch-icon.png">
-<link rel="mask-icon" href="https://karltrowbridge1.github.io/safari-pinned-tab.svg">
-<meta name="theme-color" content="#2e2e33">
-<meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="https://karltrowbridge1.github.io/blog/spotbotdocker/spotbot_docker/">
-<noscript>
-    <style>
-        #theme-toggle,
-        .top-link {
-            display: none;
-        }
+<meta name="description" content="
+  Introduction
+  
+    
+    Link to heading
+  
 
-    </style>
-</noscript><meta property="og:url" content="https://karltrowbridge1.github.io/blog/spotbotdocker/spotbot_docker/">
-  <meta property="og:site_name" content="Karl Trowbridge Portfolio">
+A few friends and I are working on an open-source project called SpotBot. The best description of the project is &ldquo;an overengineered shared playlist.&rdquo; While working on this project, things became a little convoluted. Initially, we had issues with the application running properly on Linux. I took the initiative to test the entire application on a virtual machine running Debian to ensure everything functioned correctly in a Linux environment. Here&rsquo;s how the process went:">
+<meta name="keywords" content="blog,developer,personal">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="SpotBot Docker Container">
+  <meta name="twitter:description" content="IntroductionLink to headingA few friends and I are working on an open-source project called SpotBot. The best description of the project is “an overengineered shared playlist.” While working on this project, things became a little convoluted. Initially, we had issues with the application running properly on Linux. I took the initiative to test the entire application on a virtual machine running Debian to ensure everything functioned correctly in a Linux environment. Here’s how the process went:">
+
+<meta property="og:url" content="http://localhost:1313/blog/spotbotdocker/spotbot_docker/">
+  <meta property="og:site_name" content="Karl Trowbridge | Portfolio">
   <meta property="og:title" content="SpotBot Docker Container">
-  <meta property="og:description" content="Introduction A few friends and I are working on an open-source project called SpotBot. The best description of the project is “an overengineered shared playlist.” While working on this project, things became a little convoluted. Initially, we had issues with the application running properly on Linux. I took the initiative to test the entire application on a virtual machine running Debian to ensure everything functioned correctly in a Linux environment. Here’s how the process went:">
+  <meta property="og:description" content="IntroductionLink to headingA few friends and I are working on an open-source project called SpotBot. The best description of the project is “an overengineered shared playlist.” While working on this project, things became a little convoluted. Initially, we had issues with the application running properly on Linux. I took the initiative to test the entire application on a virtual machine running Debian to ensure everything functioned correctly in a Linux environment. Here’s how the process went:">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="blog">
     <meta property="article:published_time" content="2025-01-20T11:11:20-05:00">
     <meta property="article:modified_time" content="2025-01-20T11:11:20-05:00">
-    <meta property="og:image" content="https://karltrowbridge1.github.io/images/docker.jpg">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://karltrowbridge1.github.io/images/docker.jpg">
-<meta name="twitter:title" content="SpotBot Docker Container">
-<meta name="twitter:description" content="Introduction
-A few friends and I are working on an open-source project called SpotBot. The best description of the project is &ldquo;an overengineered shared playlist.&rdquo; While working on this project, things became a little convoluted. Initially, we had issues with the application running properly on Linux. I took the initiative to test the entire application on a virtual machine running Debian to ensure everything functioned correctly in a Linux environment. Here&rsquo;s how the process went:">
 
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position":  1 ,
-      "name": "Blogs",
-      "item": "https://karltrowbridge1.github.io/blog/"
-    }, 
-    {
-      "@type": "ListItem",
-      "position":  2 ,
-      "name": "SpotBot Docker Container",
-      "item": "https://karltrowbridge1.github.io/blog/spotbotdocker/spotbot_docker/"
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "SpotBot Docker Container",
-  "name": "SpotBot Docker Container",
-  "description": "Introduction A few friends and I are working on an open-source project called SpotBot. The best description of the project is \u0026ldquo;an overengineered shared playlist.\u0026rdquo; While working on this project, things became a little convoluted. Initially, we had issues with the application running properly on Linux. I took the initiative to test the entire application on a virtual machine running Debian to ensure everything functioned correctly in a Linux environment. Here\u0026rsquo;s how the process went:\n",
-  "keywords": [
+
+
+<link rel="canonical" href="http://localhost:1313/blog/spotbotdocker/spotbot_docker/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
     
-  ],
-  "articleBody": "Introduction A few friends and I are working on an open-source project called SpotBot. The best description of the project is “an overengineered shared playlist.” While working on this project, things became a little convoluted. Initially, we had issues with the application running properly on Linux. I took the initiative to test the entire application on a virtual machine running Debian to ensure everything functioned correctly in a Linux environment. Here’s how the process went:\nStart the VM Delete the old repo that was locally cloned from GitHub Enter the VENV Re-clone the repo that needs to be tested Move the configuration file to the directory Begin testing I imgaine anyone who works in automation is disappointed.\nDocker quickly became the obvious choice to automate this entire process. Through this endeavor, I learned the benefits of Docker’s lightweight nature, the usability of volumes for a better user experience, and how application concerns often extend beyond the end user.\nA link to the SpotBot Docker testing container can be found here.\nLightweight Containers Initially, the container I created utilized Ubuntu, which was very straightforward to work with. Many of the tools the application relies on were already included in the image, making build times fast.\nAfter sharing my work with a friend more experienced with Docker, he provided feedback that shaped the lessons in this post. He suggested using Alpine or Manjaro Linux instead.\nI transitioned to Alpine, which required modifying several aspects of the Dockerfile. While this added steps to install additional packages during the build process, it resulted in a container that was much more efficient to run and deploy.\nVolumes To run SpotBot, the administrator needs to configure and provide a JSON file containing setup information. In my first attempt at creating the container, I copied this file into the container via the Dockerfile. However, my friend pointed out that this approach was not best practice. Instead, utilizing a volume allows users to build the image once and run the container with the flexibility to update setup files without rebuilding.\nAfter adjusting the configuration, users can now freely add or change a setup file on the fly via a volume.\nFor ease of use, I created a directory, /app/setup/, for the volume to mount. The container’s run command now requires a volume declaration: -v /path/to/local/dirContainingSetupFile:/app/setup\nThis allows the startup shell script to reference the setup.json file provided by the user.\nIssues in Automation Process An interestign issue with the flask applicaiton used for authentication with the Spotify servers was made apparant when the prompt I had created to close the application after authentication got burried by logs from the flask application.\nTo terminate the process after successful authentication, I used a read statement in the bash script. In classic primitive programming fashion, the application closes when the user hits .\nWhen running SpotBot on bare metal, the webserver is stopped via a keyboard interrupt. While this approach works well enough, it’s a low-priority item on the to-do list. However, creating this Docker container taught me the importance of thinking beyond just the end user to consider system integration and automation. Where a keyboard interrupt worked manually, automated systems may struggle with such a design. This was a small but valuable takeaway.\nConclusion Creating and using this container for fast testing has been an excellent time-saver and learning experience. The ability to spin up and tear down an entire environment in seconds is fantastic. Passing this container between developers has significantly reduced the “it works on my machine” scenarios that lead to broken code being pushed.\nFurthermore, this simple container can serve as a platform to jumpstart a production container, simplifying administration for end users.\nEnjoying this project has inspired me to explore creating a CI/CD pipeline for SpotBot. One step at a time.\n",
-  "wordCount" : "635",
-  "inLanguage": "en",
-  "image":"https://karltrowbridge1.github.io/images/docker.jpg","datePublished": "2025-01-20T11:11:20-05:00",
-  "dateModified": "2025-01-20T11:11:20-05:00",
-  "author":{
-    "@type": "Person",
-    "name": "Karl Trowbridge"
-  },
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://karltrowbridge1.github.io/blog/spotbotdocker/spotbot_docker/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Karl Trowbridge Portfolio",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://karltrowbridge1.github.io/favicon.ico"
-    }
-  }
-}
-</script>
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/img/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/img/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/img/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
 </head>
 
-<body class=" dark" id="top">
-<script>
-    if (localStorage.getItem("pref-theme") === "light") {
-        document.body.classList.remove('dark')
-    }
 
-</script>
 
-<header class="header">
-    <nav class="nav">
-        <div class="logo">
-            <a href="https://karltrowbridge1.github.io/" accesskey="h" title="Karl Trowbridge Portfolio (Alt + H)">Karl Trowbridge Portfolio</a>
-            <div class="logo-switches">
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                    </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="5"></circle>
-                        <line x1="12" y1="1" x2="12" y2="3"></line>
-                        <line x1="12" y1="21" x2="12" y2="23"></line>
-                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                        <line x1="1" y1="12" x2="3" y2="12"></line>
-                        <line x1="21" y1="12" x2="23" y2="12"></line>
-                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                    </svg>
-                </button>
-            </div>
-        </div>
-        <ul id="menu">
-            <li>
-                <a href="https://karltrowbridge1.github.io/projects/" title="Projects">
-                    <span>Projects</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://karltrowbridge1.github.io/blog/" title="Blog">
-                    <span>Blog</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://www.linkedin.com/in/karl-trowbridge-cyber/" title="LinkedIn">
-                    <span>LinkedIn</span>&nbsp;
-                    <svg fill="none" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round"
-                        stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" height="12" width="12">
-                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
-                        <path d="M15 3h6v6"></path>
-                        <path d="M10 14L21 3"></path>
-                    </svg>
-                </a>
-            </li>
-        </ul>
-    </nav>
-</header>
-<main class="main">
 
-<article class="post-single">
-  <header class="post-header">
-    <div class="breadcrumbs"><a href="https://karltrowbridge1.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://karltrowbridge1.github.io/blog/">Blogs</a></div>
-    <h1 class="post-title entry-hint-parent">
-      SpotBot Docker Container
-    </h1>
-  </header> 
-<figure class="entry-cover"><img loading="eager" src="https://karltrowbridge1.github.io/images/docker.jpg" alt="">
-        
-</figure><div class="toc">
-    <details >
-        <summary accesskey="c" title="(Alt + C)">
-            <span class="details">Table of Contents</span>
-        </summary>
 
-        <div class="inner"><nav id="TableOfContents">
-  <ul>
-    <li><a href="#introduction">Introduction</a></li>
-    <li><a href="#lightweight-containers">Lightweight Containers</a></li>
-    <li><a href="#volumes">Volumes</a></li>
-    <li><a href="#issues-in-automation-process">Issues in Automation Process</a></li>
-    <li><a href="#conclusion">Conclusion</a></li>
-  </ul>
-</nav>
-        </div>
-    </details>
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
 </div>
 
-  <div class="post-content"><h2 id="introduction">Introduction<a hidden class="anchor" aria-hidden="true" href="#introduction">#</a></h2>
-<p>A few friends and I are working on an open-source project called <a href="https://karltrowbridge1.github.io/projects/spotbot/">SpotBot</a>. The best description of the project is &ldquo;an overengineered shared playlist.&rdquo; While working on this project, things became a little convoluted. Initially, we had issues with the application running properly on Linux. I took the initiative to test the entire application on a virtual machine running Debian to ensure everything functioned correctly in a Linux environment. Here&rsquo;s how the process went:</p>
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      Karl Trowbridge | Portfolio
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/blog/">Blog</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/projects/">Projects</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="https://www.linkedin.com/in/karl-trowbridge-cyber/">LinkedIn</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container page">
+  <article>
+    <header>
+      <h1 class="title">
+        <a class="title-link" href="http://localhost:1313/blog/spotbotdocker/spotbot_docker/">
+          SpotBot Docker Container
+        </a>
+      </h1>
+    </header>
+
+    <h2 id="introduction">
+  Introduction
+  <a class="heading-link" href="#introduction">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>A few friends and I are working on an open-source project called <a href="https://karltrowbridge1.github.io/projects/spotbot/"  class="external-link" target="_blank" rel="noopener">SpotBot</a>. The best description of the project is &ldquo;an overengineered shared playlist.&rdquo; While working on this project, things became a little convoluted. Initially, we had issues with the application running properly on Linux. I took the initiative to test the entire application on a virtual machine running Debian to ensure everything functioned correctly in a Linux environment. Here&rsquo;s how the process went:</p>
 <ol>
 <li>Start the VM</li>
 <li>Delete the old repo that was locally cloned from GitHub</li>
@@ -202,152 +176,116 @@ A few friends and I are working on an open-source project called SpotBot. The be
 </ol>
 <p>I imgaine anyone who works in automation is disappointed.</p>
 <p>Docker quickly became the obvious choice to automate this entire process. Through this endeavor, I learned the benefits of Docker&rsquo;s lightweight nature, the usability of volumes for a better user experience, and how application concerns often extend beyond the end user.</p>
-<p>A link to the SpotBot Docker testing container can be found <a href="https://github.com/karltrowbridge1/spotbotDocker">here</a>.</p>
-<h2 id="lightweight-containers">Lightweight Containers<a hidden class="anchor" aria-hidden="true" href="#lightweight-containers">#</a></h2>
+<p>A link to the SpotBot Docker testing container can be found <a href="https://github.com/karltrowbridge1/spotbotDocker"  class="external-link" target="_blank" rel="noopener">here</a>.</p>
+<h2 id="lightweight-containers">
+  Lightweight Containers
+  <a class="heading-link" href="#lightweight-containers">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
 <p>Initially, the container I created utilized Ubuntu, which was very straightforward to work with. Many of the tools the application relies on were already included in the image, making build times fast.</p>
 <p>After sharing my work with a friend more experienced with Docker, he provided feedback that shaped the lessons in this post. He suggested using Alpine or Manjaro Linux instead.</p>
 <p>I transitioned to Alpine, which required modifying several aspects of the <code>Dockerfile</code>. While this added steps to install additional packages during the build process, it resulted in a container that was much more efficient to run and deploy.</p>
-<h2 id="volumes">Volumes<a hidden class="anchor" aria-hidden="true" href="#volumes">#</a></h2>
-<p>To run SpotBot, the administrator needs to configure and provide a JSON file containing setup information. In my first attempt at creating the container, I copied this file into the container via the <code>Dockerfile</code>. However, my friend pointed out that this approach was not best practice. Instead, utilizing a <a href="https://docs.docker.com/engine/storage/volumes/">volume</a> allows users to build the image once and run the container with the flexibility to update setup files without rebuilding.</p>
+<h2 id="volumes">
+  Volumes
+  <a class="heading-link" href="#volumes">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>To run SpotBot, the administrator needs to configure and provide a JSON file containing setup information. In my first attempt at creating the container, I copied this file into the container via the <code>Dockerfile</code>. However, my friend pointed out that this approach was not best practice. Instead, utilizing a <a href="https://docs.docker.com/engine/storage/volumes/"  class="external-link" target="_blank" rel="noopener">volume</a> allows users to build the image once and run the container with the flexibility to update setup files without rebuilding.</p>
 <p>After adjusting the configuration, users can now freely add or change a setup file on the fly via a volume.</p>
 <p>For ease of use, I created a directory, <code>/app/setup/</code>, for the volume to mount. The container&rsquo;s run command now requires a volume declaration:
 <code>-v /path/to/local/dirContainingSetupFile:/app/setup</code></p>
 <p>This allows the startup shell script to reference the <code>setup.json</code> file provided by the user.</p>
-<h2 id="issues-in-automation-process">Issues in Automation Process<a hidden class="anchor" aria-hidden="true" href="#issues-in-automation-process">#</a></h2>
+<h2 id="issues-in-automation-process">
+  Issues in Automation Process
+  <a class="heading-link" href="#issues-in-automation-process">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
 <p>An interestign issue with the flask applicaiton used for authentication with the Spotify servers was made apparant when the prompt I had created to close the application after authentication got burried by logs from the flask application.</p>
-<p>To terminate the process after successful authentication, I used a <code>read</code> statement in the bash script. In classic primitive programming fashion, the application closes when the user hits <Enter>.</p>
+<p>To terminate the process after successful authentication, I used a <code>read</code> statement in the bash script. In classic primitive programming fashion, the application closes when the user hits <!-- raw HTML omitted -->.</p>
 <p>When running SpotBot on bare metal, the webserver is stopped via a keyboard interrupt. While this approach works well enough, it’s a low-priority item on the to-do list. However, creating this Docker container taught me the importance of thinking beyond just the end user to consider system integration and automation. Where a keyboard interrupt worked manually, automated systems may struggle with such a design. This was a small but valuable takeaway.</p>
-<h2 id="conclusion">Conclusion<a hidden class="anchor" aria-hidden="true" href="#conclusion">#</a></h2>
+<h2 id="conclusion">
+  Conclusion
+  <a class="heading-link" href="#conclusion">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
 <p>Creating and using this container for fast testing has been an excellent time-saver and learning experience. The ability to spin up and tear down an entire environment in seconds is fantastic. Passing this container between developers has significantly reduced the &ldquo;it works on my machine&rdquo; scenarios that lead to broken code being pushed.</p>
 <p>Furthermore, this simple container can serve as a platform to jumpstart a production container, simplifying administration for end users.</p>
 <p>Enjoying this project has inspired me to explore creating a CI/CD pipeline for SpotBot. One step at a time.</p>
 
+  </article>
+</section>
 
-  </div>
+  
 
-  <footer class="post-footer">
-    <ul class="post-tags">
-    </ul>
-  </footer>
-</article>
-    </main>
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
     
-<footer class="footer">
-        <span>&copy; 2025 <a href="https://karltrowbridge1.github.io/">Karl Trowbridge Portfolio</a></span> · 
-
-    <span>
-        Powered by
-        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
-    </span>
+    2025
+     Karl Trowbridge 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
 </footer>
-<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
-        <path d="M12 6H0l6-6z" />
-    </svg>
-</a>
 
-<script>
-    let menu = document.getElementById('menu')
-    if (menu) {
-        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
-        menu.onscroll = function () {
-            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
-        }
-    }
+  </main>
 
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener("click", function (e) {
-            e.preventDefault();
-            var id = this.getAttribute("href").substr(1);
-            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
-                    behavior: "smooth"
-                });
-            } else {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
-            }
-            if (id === "top") {
-                history.replaceState(null, null, " ");
-            } else {
-                history.pushState(null, null, `#${id}`);
-            }
-        });
-    });
+  
 
-</script>
-<script>
-    var mybutton = document.getElementById("top-link");
-    window.onscroll = function () {
-        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-            mybutton.style.visibility = "visible";
-            mybutton.style.opacity = "1";
-        } else {
-            mybutton.style.visibility = "hidden";
-            mybutton.style.opacity = "0";
-        }
-    };
+  
+  
+  <script src="/js/coder.js"></script>
+  
 
-</script>
-<script>
-    document.getElementById("theme-toggle").addEventListener("click", () => {
-        if (document.body.className.includes("dark")) {
-            document.body.classList.remove('dark');
-            localStorage.setItem("pref-theme", 'light');
-        } else {
-            document.body.classList.add('dark');
-            localStorage.setItem("pref-theme", 'dark');
-        }
-    })
+  
 
-</script>
-<script>
-    document.querySelectorAll('pre > code').forEach((codeblock) => {
-        const container = codeblock.parentNode.parentNode;
+  
 
-        const copybutton = document.createElement('button');
-        copybutton.classList.add('copy-code');
-        copybutton.innerHTML = 'copy';
 
-        function copyingDone() {
-            copybutton.innerHTML = 'copied!';
-            setTimeout(() => {
-                copybutton.innerHTML = 'copy';
-            }, 2000);
-        }
+  
 
-        copybutton.addEventListener('click', (cb) => {
-            if ('clipboard' in navigator) {
-                navigator.clipboard.writeText(codeblock.textContent);
-                copyingDone();
-                return;
-            }
+  
 
-            const range = document.createRange();
-            range.selectNodeContents(codeblock);
-            const selection = window.getSelection();
-            selection.removeAllRanges();
-            selection.addRange(range);
-            try {
-                document.execCommand('copy');
-                copyingDone();
-            } catch (e) { };
-            selection.removeRange(range);
-        });
+  
 
-        if (container.classList.contains("highlight")) {
-            container.appendChild(copybutton);
-        } else if (container.parentNode.firstChild == container) {
-            
-        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
-            
-            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
-        } else {
-            
-            codeblock.parentNode.appendChild(copybutton);
-        }
-    });
-</script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
 </body>
-
 </html>

@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Projects on Karl Trowbridge Portfolio</title>
-    <link>https://karltrowbridge1.github.io/projects/</link>
-    <description>Recent content in Projects on Karl Trowbridge Portfolio</description>
-    <generator>Hugo -- 0.142.0</generator>
+    <title>Projects on Karl Trowbridge | Portfolio</title>
+    <link>http://localhost:1313/projects/</link>
+    <description>Recent content in Projects on Karl Trowbridge | Portfolio</description>
+    <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Thu, 01 Aug 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://karltrowbridge1.github.io/projects/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/projects/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>PJPT</title>
-      <link>https://karltrowbridge1.github.io/projects/pjpt/</link>
+      <link>http://localhost:1313/projects/pjpt/</link>
       <pubDate>Thu, 01 Aug 2024 00:00:00 +0000</pubDate>
-      <guid>https://karltrowbridge1.github.io/projects/pjpt/</guid>
-      <description>The Practical Junior Penetration Tester (PJPT) certification is a beginner-level penetration testing exam experience.</description>
+      <guid>http://localhost:1313/projects/pjpt/</guid>
+      <description>&lt;h1 id=&#34;pjpt-overview&#34;&gt;PJPT Overview&lt;/h1&gt;&#xA;&lt;p&gt;TCM Security&amp;rsquo;s &lt;a href=&#34;https://certifications.tcm-sec.com/pjpt/&#34;&gt;Practical Junior Penetration Tester&lt;/a&gt; is a training program designed to offer hands-on penetration testing material and labs. The course covers essential tools and techniques that are exercised through labs and taught through lectures. PJPT focuses on developing the &lt;em&gt;ability&lt;/em&gt; to identify and exploit vulnerabilities.&lt;/p&gt;</description>
     </item>
     <item>
       <title>SpotBot</title>
-      <link>https://karltrowbridge1.github.io/projects/spotbot/</link>
+      <link>http://localhost:1313/projects/spotbot/</link>
       <pubDate>Thu, 01 Aug 2024 00:00:00 +0000</pubDate>
-      <guid>https://karltrowbridge1.github.io/projects/spotbot/</guid>
-      <description>A discord bot that scrapes users Spotify links from a server and automatically adds songs to a Spotify Playlist.</description>
+      <guid>http://localhost:1313/projects/spotbot/</guid>
+      <description>&lt;h1 id=&#34;spotbot-overview&#34;&gt;Spotbot Overview&lt;/h1&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/wildxmxtt/spotbot2&#34;&gt;Spotbot&lt;/a&gt; is a Discord bot that scrapes links sent to a Discord channel and automatically adds songs to a Spotify playlist.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
