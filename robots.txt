@@ -1,3 +1,0 @@
-User-agent: *
-Disallow:
-Sitemap: https://karltrowbridge1.github.io/sitemap.xml
