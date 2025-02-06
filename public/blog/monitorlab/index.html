@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>
+  Monitor Lab · Karl Trowbridge | Portfolio
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Karl Trowbridge">
+<meta name="description" content="
+  Introduction
+  
+    
+    Link to heading
+  
+
+Monitoring in DevSecOps is a step that produces continuous observations and analysis of an information system. In the continued pursuit of my DevSecOps learning, I set to monitor my own application to better understand the process of DevOps and how security is intertwined.
+While competing in the Collegiate Cyber Defense Competition, or CCDC, I spent a lot of precious time looking through logs trying to paint a picture of a current systems health. This was a last resort when our centralized logging system was compromised or unavailable, and often times was prone to having an important log slip right past. There is however an entire landscape of applications geared towards painting this picture for you. Enter monitoring.">
+<meta name="keywords" content="blog,developer,personal">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Monitor Lab">
+  <meta name="twitter:description" content="IntroductionLink to headingMonitoring in DevSecOps is a step that produces continuous observations and analysis of an information system. In the continued pursuit of my DevSecOps learning, I set to monitor my own application to better understand the process of DevOps and how security is intertwined.
+While competing in the Collegiate Cyber Defense Competition, or CCDC, I spent a lot of precious time looking through logs trying to paint a picture of a current systems health. This was a last resort when our centralized logging system was compromised or unavailable, and often times was prone to having an important log slip right past. There is however an entire landscape of applications geared towards painting this picture for you. Enter monitoring.">
+
+<meta property="og:url" content="https://karltrowbridge1.github.io/blog/monitorlab/">
+  <meta property="og:site_name" content="Karl Trowbridge | Portfolio">
+  <meta property="og:title" content="Monitor Lab">
+  <meta property="og:description" content="IntroductionLink to headingMonitoring in DevSecOps is a step that produces continuous observations and analysis of an information system. In the continued pursuit of my DevSecOps learning, I set to monitor my own application to better understand the process of DevOps and how security is intertwined.
+While competing in the Collegiate Cyber Defense Competition, or CCDC, I spent a lot of precious time looking through logs trying to paint a picture of a current systems health. This was a last resort when our centralized logging system was compromised or unavailable, and often times was prone to having an important log slip right past. There is however an entire landscape of applications geared towards painting this picture for you. Enter monitoring.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2025-02-05T17:50:10-05:00">
+    <meta property="article:modified_time" content="2025-02-05T17:50:10-05:00">
+
+
+
+
+<link rel="canonical" href="https://karltrowbridge1.github.io/blog/monitorlab/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.min.b886fe0d9034709648f91f4ce178f51dd367d9350f82dd1132d54fd69bfca66f.css" integrity="sha256-uIb&#43;DZA0cJZI&#43;R9M4Xj1HdNn2TUPgt0RMtVP1pv8pm8=" crossorigin="anonymous" media="screen" />
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css" integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin="anonymous" media="screen" />
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/img/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/img/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/img/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="https://karltrowbridge1.github.io/">
+      Karl Trowbridge | Portfolio
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/blog/">Blog</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/projects/">Projects</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="https://www.linkedin.com/in/karl-trowbridge-cyber/">LinkedIn</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container page">
+  <article>
+    <header>
+      <h1 class="title">
+        <a class="title-link" href="https://karltrowbridge1.github.io/blog/monitorlab/">
+          Monitor Lab
+        </a>
+      </h1>
+    </header>
+
+    <h2 id="introduction">
+  Introduction
+  <a class="heading-link" href="#introduction">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Monitoring in DevSecOps is a step that produces continuous observations and analysis of an information system. In the continued pursuit of my DevSecOps learning, I set to monitor my own application to better understand the process of DevOps and how security is intertwined.</p>
+<p>While competing in the Collegiate Cyber Defense Competition, or CCDC, I spent a lot of precious time looking through logs trying to paint a picture of a current systems health. This was a last resort when our centralized logging system was compromised or unavailable, and often times was prone to having an important log slip right past. There is however an entire landscape of applications geared towards painting this picture for you. Enter monitoring.</p>
+<h2 id="monitoring-in-devsecops">
+  Monitoring In DevSecOps
+  <a class="heading-link" href="#monitoring-in-devsecops">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Monitoring in DevSecOps is the continuous process of actively tracking and analyzing system performance and security across the SDLC. Data is collected from aspects like applications, infrastructure, and services to give real time insight into health, performance, and system status. The goal is to encourage proactive issue detection and a rapid response to problems.</p>
+<h2 id="setting-up-the-lab">
+  Setting Up the Lab
+  <a class="heading-link" href="#setting-up-the-lab">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="tools">
+  Tools
+  <a class="heading-link" href="#tools">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>A tool called <a href="https://locust.io/"  class="external-link" target="_blank" rel="noopener">Locust</a> is a python-based load generating tool that is highly configurable. Using Python code, tests can be defined to fit your exact needs providing real time data. This will be used to simulate usage on an application in this lab.</p>
+<p>A <a href="https://github.com/ContainerSolutions/locust_exporter"  class="external-link" target="_blank" rel="noopener">Locust exporter</a> will also be used to expose metrics gathered in a Prometheus-compatible format.</p>
+<p><a href="https://prometheus.io/"  class="external-link" target="_blank" rel="noopener">Prometheus</a> is a monitoring tool that can collect and store metrics from application and infrastructure. Metrics are stored with a timestamp and stored them by name and key-value pairs. Prometheus will collect and store the metrics gathered from the Locust forwarder.</p>
+<p><a href="https://grafana.com/"  class="external-link" target="_blank" rel="noopener">Grafana</a> visualizes data from sources and displays it to a dashboard. Dashboards can have graphs, charts, histograms, geomaps and even heatmaps. Grafana will visualize all of our metrics from Prometheus.</p>
+<p>Finally, our <a href="http://karl.trowbridge1.github.io/blog/buildingavaultedtokenizationservicewithkubernetes/"  class="external-link" target="_blank" rel="noopener">service</a> itself will be the Kubernetes pod from last week!</p>
+<h3 id="configuring-locust">
+  Configuring Locust
+  <a class="heading-link" href="#configuring-locust">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>To run Locust I wrote a custom script to interface with the Tokenization Service:</p>
+<p><code>locustfile.py</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ff7b72">from</span> <span style="color:#ff7b72">locust</span> <span style="color:#ff7b72">import</span> HttpUser, task, between
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">import</span> <span style="color:#ff7b72">random</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">class</span> <span style="color:#f0883e;font-weight:bold">TokenizationServiceUser</span>(HttpUser):
+</span></span><span style="display:flex;"><span>    wait_time <span style="color:#ff7b72;font-weight:bold">=</span> between(<span style="color:#a5d6ff">1</span>, <span style="color:#a5d6ff">2</span>)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#d2a8ff;font-weight:bold">@task</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">def</span> <span style="color:#d2a8ff;font-weight:bold">create_token</span>(self):
+</span></span><span style="display:flex;"><span>        token_name <span style="color:#ff7b72;font-weight:bold">=</span> <span style="color:#79c0ff">f</span><span style="color:#a5d6ff">&#34;token_</span><span style="color:#a5d6ff">{</span>random<span style="color:#ff7b72;font-weight:bold">.</span>randint(<span style="color:#a5d6ff">1</span>, <span style="color:#a5d6ff">1000</span>)<span style="color:#a5d6ff">}</span><span style="color:#a5d6ff">&#34;</span>
+</span></span><span style="display:flex;"><span>        self<span style="color:#ff7b72;font-weight:bold">.</span>client<span style="color:#ff7b72;font-weight:bold">.</span>post(<span style="color:#a5d6ff">&#34;/tokenize&#34;</span>, json<span style="color:#ff7b72;font-weight:bold">=</span>{
+</span></span><span style="display:flex;"><span>                                        <span style="color:#a5d6ff">&#34;name&#34;</span>: token_name,
+</span></span><span style="display:flex;"><span>                                        <span style="color:#a5d6ff">&#34;data&#34;</span>: <span style="color:#a5d6ff">&#34;example sensitive info&#34;</span>
+</span></span><span style="display:flex;"><span>                                        })
+</span></span></code></pre></div><p>This specific <code>locustfile.py</code> shows the use of the tokenization endpoint on the service I wrote last week is going to be tested. We first define the <code>@task</code> in a users class. When the users run, a <code>task</code> is picked, executed, then sleeps for some time, and the cycle begins again. In our case, a set token name and data pair is set with a randomly generated token.</p>
+<p>With the <code>locustfile.py</code> in the working directory we can run Locust:</p>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>locust --host http://k8s-service-url:port --web-host 0.0.0.0
+</span></span></code></pre></div><p>This hosts our locust webapp:</p>
+<p><img src="locust.png" alt="locust"></p>
+<p>When we run the test, information is obtained by this script and hosted on  port <code>8089</code>. To export this information in a readable format for Prometheus we can then use a docker container from container solutions, locust exporter:</p>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#7ee787">locust-metrics-exporter</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span><span style="color:#7ee787">image</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">containersol/locust_exporter</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span><span style="color:#7ee787">ports</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span>- <span style="color:#a5d6ff">&#34;9646:9646&#34;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span><span style="color:#7ee787">environment</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span>- <span style="color:#a5d6ff">LOCUST_EXPORTER_URI=http://locust-address:8089</span><span style="color:#6e7681">
+</span></span></span></code></pre></div><p>With this new service, metrics are hosted and and now readable for Prometheus</p>
+<h3 id="configuring-prometheus">
+  Configuring Prometheus
+  <a class="heading-link" href="#configuring-prometheus">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Prometheus is ran in another docker container with the following compose file:</p>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#7ee787">services</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">prometheus</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span><span style="color:#7ee787">image</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">prom/prometheus</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span><span style="color:#7ee787">ports</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">      </span>- <span style="color:#a5d6ff">&#34;9090:9090&#34;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span><span style="color:#7ee787">volumes</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">      </span>- <span style="color:#a5d6ff">/home/kali/Monitor Lab/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml</span><span style="color:#6e7681">
+</span></span></span></code></pre></div><p>It is important to configure Prometheus to scrape the infromation being hosted, in this case it is our Locust Exporter. To acheive that a mount is created in a volume with the custom configuration that points to the Locust exporter. These are the additions made to the Prometheus config file at <code>/etc/prometheus/prometheus.yml</code> in the Prometheus container.</p>
+<p><code>prometheus.yml</code> additions:</p>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#7ee787">global</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span><span style="color:#7ee787">scrape_configs</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span>- <span style="color:#7ee787">job_name</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;prometheus_scrapper&#39;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span><span style="color:#7ee787">static_configs</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">      </span>- <span style="color:#7ee787">targets</span>:<span style="color:#6e7681"> </span>[<span style="color:#a5d6ff">&#39;locust-exporter-address:9646&#39;</span>]<span style="color:#6e7681">
+</span></span></span></code></pre></div><p>With that, Prometheus starts up:</p>
+<p><img src="prometheus.png" alt="prometheus"></p>
+<h3 id="configuring-grafana">
+  Configuring Grafana
+  <a class="heading-link" href="#configuring-grafana">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>With the tokenization service running, the stress test underway, metrics being collected, then exported, and the data collected it is time to visualize it with Grafana. Spinning up a docker container we can interact with the web application:</p>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#7ee787">version</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#34;3.8&#34;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span><span style="color:#7ee787">services</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">grafana</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span><span style="color:#7ee787">image</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">grafana/grafana</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span><span style="color:#7ee787">ports</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">      </span>- <span style="color:#a5d6ff">&#34;3000:3000&#34;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span><span style="color:#7ee787">environment</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">      </span>- <span style="color:#a5d6ff">GF_AUTH_ANONYMOUS_ENABLED=true</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">      </span>- <span style="color:#a5d6ff">GF_AUTH_ANONYMOUS_ORG_ROLE=Admin</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">      </span>- <span style="color:#a5d6ff">GF_SECURITY_DISABLE_LOGIN_FORM=true</span><span style="color:#6e7681">
+</span></span></span></code></pre></div><p>From here we configure a data source to give Grafana the metrics to visualize. There is an option specifically for Prometheus that is then configured to point towards the Promethius address. Grafana then saves and tests this configuration and confirms connection.</p>
+<p>Finally, a dashboard is needed. The dashboard is a collection of panels that display the data collected from a data source in charts, graphs, and other visualizations. This displays a full picture that is easy to understand and very intuitive. For speed and ease there are pre-made dashboards, <a href="https://grafana.com/grafana/dashboards/11985-locust-test/"  class="external-link" target="_blank" rel="noopener">including one specifically designed for Locust Tests</a>. This specific dashboard can be accessed but the ID 11985. Pretty slick:</p>
+<p><img src="grafana.png" alt="grafana"></p>
+<p>Just like that, metrics visualized and displayed!</p>
+<h2 id="monitoring-in-devsecops-1">
+  Monitoring in DevSecOps
+  <a class="heading-link" href="#monitoring-in-devsecops-1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>This simple lab displaying the visualization of usage messages fron my own Kubernetes Pod has given a look into the Monitor Step in DevSecOps and what it has to offer. Metrics can highlight the health of an information system, specifically with issue detection and security insight. Specific metrics can indicate bottlenecks before deployment like high response times under load, or a resource exhaustion for containers. Other metrics can highlight attacks or vulnerabilities such as unexpected spikes in traffic, unusual API request patters, or anomalous failures of specific endpoints. All of this information available at a glance creates an excellent feedback loop for security professionals and system engineers alike.</p>
+
+  </article>
+</section>
+
+  
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2025
+     Karl Trowbridge 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js" integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>
