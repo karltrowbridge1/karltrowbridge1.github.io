@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Karl Trowbridge | Portfolio</title>
+    <link>http://karltrowbridge1.github.io/</link>
+    <description>Recent content on Karl Trowbridge | Portfolio</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 05 Feb 2025 17:50:10 -0500</lastBuildDate>
+    <atom:link href="http://karltrowbridge1.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Monitor Lab</title>
+      <link>http://karltrowbridge1.github.io/blog/monitorlab/</link>
+      <pubDate>Wed, 05 Feb 2025 17:50:10 -0500</pubDate>
+      <guid>http://karltrowbridge1.github.io/blog/monitorlab/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;&#xD;&#xA;  Introduction&#xD;&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#introduction&#34;&gt;&#xD;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xD;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xD;&#xA;  &lt;/a&gt;&#xD;&#xA;&lt;/h2&gt;&#xD;&#xA;&lt;p&gt;Monitoring in DevSecOps is a step that produces continuous observations and analysis of an information system. In the continued pursuit of my DevSecOps learning, I set to monitor my own application to better understand the process of DevOps and how security is intertwined.&lt;/p&gt;&#xA;&lt;p&gt;While competing in the Collegiate Cyber Defense Competition, or CCDC, I spent a lot of precious time looking through logs trying to paint a picture of a current systems health. This was a last resort when our centralized logging system was compromised or unavailable, and often times was prone to having an important log slip right past. There is however an entire landscape of applications geared towards painting this picture for you. Enter monitoring.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>About</title>
+      <link>http://karltrowbridge1.github.io/about/</link>
+      <pubDate>Fri, 31 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://karltrowbridge1.github.io/about/</guid>
+      <description>&lt;p&gt;👋 My name is Karl Trowbridge, I am interested in InfoSec, development, and database engineering. I attended Southeast Missouri State University and graduated in 2024 with a Bachelors of Science in Cybersercurity. Whether it&amp;rsquo;s learning about security vulnerabilites, coding, or optimizing data storage, I love the challenge. Welcome to my blog, this is where I doccument my personal projects.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Building a Vaulted Tokenization Service With Kubernetes</title>
+      <link>http://karltrowbridge1.github.io/blog/buildingavaultedtokenizationservicewithkubernetes/</link>
+      <pubDate>Tue, 28 Jan 2025 14:22:07 -0500</pubDate>
+      <guid>http://karltrowbridge1.github.io/blog/buildingavaultedtokenizationservicewithkubernetes/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;&#xD;&#xA;  Introduction&#xD;&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#introduction&#34;&gt;&#xD;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xD;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xD;&#xA;  &lt;/a&gt;&#xD;&#xA;&lt;/h2&gt;&#xD;&#xA;&lt;p&gt;Tokenization is a process that replaces sensitive data with non-sensitive data, typically using a reference token that maps back to the original data. This is a practice that is part of secrets management, a method of secretly storing, accessing, and managing digital secrets.&lt;/p&gt;&#xA;&lt;p&gt;In my pursuit of learning more about DevSecOps, I wanted to get my hands on some Kubernetes work to learn about the deployment, scaling, and management of containerized applications. Kubernetes was chosen for its ability to manage containerized applications specifically at scale. This makes it a valuable skill to have in DevOps.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>SpotBot Docker Container</title>
+      <link>http://karltrowbridge1.github.io/blog/spotbotdocker/spotbot_docker/</link>
+      <pubDate>Mon, 20 Jan 2025 11:11:20 -0500</pubDate>
+      <guid>http://karltrowbridge1.github.io/blog/spotbotdocker/spotbot_docker/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;&#xD;&#xA;  Introduction&#xD;&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#introduction&#34;&gt;&#xD;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xD;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xD;&#xA;  &lt;/a&gt;&#xD;&#xA;&lt;/h2&gt;&#xD;&#xA;&lt;p&gt;A few friends and I are working on an open-source project called &lt;a href=&#34;https://karltrowbridge1.github.io/projects/spotbot/&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;SpotBot&lt;/a&gt;. The best description of the project is &amp;ldquo;an overengineered shared playlist.&amp;rdquo; While working on this project, things became a little convoluted. Initially, we had issues with the application running properly on Linux. I took the initiative to test the entire application on a virtual machine running Debian to ensure everything functioned correctly in a Linux environment. Here&amp;rsquo;s how the process went:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>John the Ripper</title>
+      <link>http://karltrowbridge1.github.io/blog/john/john-the-ripper/</link>
+      <pubDate>Tue, 27 Aug 2024 17:51:26 -0400</pubDate>
+      <guid>http://karltrowbridge1.github.io/blog/john/john-the-ripper/</guid>
+      <description>&lt;h1 id=&#34;what-is-john-the-ripper&#34;&gt;&#xD;&#xA;  What is John the Ripper&#xD;&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#what-is-john-the-ripper&#34;&gt;&#xD;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xD;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xD;&#xA;  &lt;/a&gt;&#xD;&#xA;&lt;/h1&gt;&#xD;&#xA;&lt;p&gt;John the Ripper is a password cracker that supports many types of hashes or ciphers. The flexible software is able to run on several different kinds of operating systems utilizing CPU power or GPU power in some cases. A link to the GitHub repo for John the Ripper can be found &lt;a href=&#34;https://github.com/openwall/john&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;When testing the strength or security of passwords during a penetration test/security audit a password cracker can identify weak credentials to highlight vulnerabilities within an organization and its infrastructure. Tools like John the Ripper can also prove useful in a forensic investigation where an unknown password may hold investigators from important data.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>PJPT</title>
+      <link>http://karltrowbridge1.github.io/projects/pjpt/</link>
+      <pubDate>Thu, 01 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>http://karltrowbridge1.github.io/projects/pjpt/</guid>
+      <description>&lt;h1 id=&#34;pjpt-overview&#34;&gt;&#xD;&#xA;  PJPT Overview&#xD;&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#pjpt-overview&#34;&gt;&#xD;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xD;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xD;&#xA;  &lt;/a&gt;&#xD;&#xA;&lt;/h1&gt;&#xD;&#xA;&lt;p&gt;TCM Security&amp;rsquo;s &lt;a href=&#34;https://certifications.tcm-sec.com/pjpt/&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Practical Junior Penetration Tester&lt;/a&gt; is a training program designed to offer hands-on penetration testing material and labs. The course covers essential tools and techniques that are exercised through labs and taught through lectures. PJPT focuses on developing the &lt;em&gt;ability&lt;/em&gt; to identify and exploit vulnerabilities.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>SpotBot</title>
+      <link>http://karltrowbridge1.github.io/projects/spotbot/</link>
+      <pubDate>Thu, 01 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>http://karltrowbridge1.github.io/projects/spotbot/</guid>
+      <description>&lt;h1 id=&#34;spotbot-overview&#34;&gt;&#xD;&#xA;  Spotbot Overview&#xD;&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#spotbot-overview&#34;&gt;&#xD;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xD;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xD;&#xA;  &lt;/a&gt;&#xD;&#xA;&lt;/h1&gt;&#xD;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/wildxmxtt/spotbot2&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Spotbot&lt;/a&gt; is a Discord bot that scrapes links sent to a Discord channel and automatically adds songs to a Spotify playlist.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Catching Up on SpotBot</title>
+      <link>http://karltrowbridge1.github.io/blog/spotbot1/catching-up-on-spotbot/</link>
+      <pubDate>Wed, 31 Jul 2024 18:10:27 -0400</pubDate>
+      <guid>http://karltrowbridge1.github.io/blog/spotbot1/catching-up-on-spotbot/</guid>
+      <description>&lt;h1 id=&#34;spotbot-1&#34;&gt;&#xD;&#xA;  Spotbot 1&#xD;&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#spotbot-1&#34;&gt;&#xD;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xD;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xD;&#xA;  &lt;/a&gt;&#xD;&#xA;&lt;/h1&gt;&#xD;&#xA;&lt;p&gt;Spotbot is a Discord bot that scrapes Spotify links from a Discord channel and automatically adds the songs to a set Spotify playlist. Users must set up and host the bot on their own hardware. To authenticate, user login with a Spotify account and set all parameters in a JSON file. In its original state the bot utilizes files for storage of links sent in the chat.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

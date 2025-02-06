@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>
+  John the Ripper · Karl Trowbridge | Portfolio
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Karl Trowbridge">
+<meta name="description" content="A writeup on how I used John the Ripper in a CTF to crack a zip file.">
+<meta name="keywords" content="blog,developer,personal">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="John the Ripper">
+  <meta name="twitter:description" content="A writeup on how I used John the Ripper in a CTF to crack a zip file.">
+
+<meta property="og:url" content="http://karltrowbridge1.github.io/blog/john/john-the-ripper/">
+  <meta property="og:site_name" content="Karl Trowbridge | Portfolio">
+  <meta property="og:title" content="John the Ripper">
+  <meta property="og:description" content="A writeup on how I used John the Ripper in a CTF to crack a zip file.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2024-08-27T17:51:26-04:00">
+    <meta property="article:modified_time" content="2024-08-27T17:51:26-04:00">
+
+
+
+
+<link rel="canonical" href="http://karltrowbridge1.github.io/blog/john/john-the-ripper/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.min.b886fe0d9034709648f91f4ce178f51dd367d9350f82dd1132d54fd69bfca66f.css" integrity="sha256-uIb&#43;DZA0cJZI&#43;R9M4Xj1HdNn2TUPgt0RMtVP1pv8pm8=" crossorigin="anonymous" media="screen" />
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css" integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin="anonymous" media="screen" />
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/img/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/img/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/img/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://karltrowbridge1.github.io/">
+      Karl Trowbridge | Portfolio
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/blog/">Blog</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/projects/">Projects</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="https://www.linkedin.com/in/karl-trowbridge-cyber/">LinkedIn</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container page">
+  <article>
+    <header>
+      <h1 class="title">
+        <a class="title-link" href="http://karltrowbridge1.github.io/blog/john/john-the-ripper/">
+          John the Ripper
+        </a>
+      </h1>
+    </header>
+
+    <h1 id="what-is-john-the-ripper">
+  What is John the Ripper
+  <a class="heading-link" href="#what-is-john-the-ripper">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<p>John the Ripper is a password cracker that supports many types of hashes or ciphers. The flexible software is able to run on several different kinds of operating systems utilizing CPU power or GPU power in some cases. A link to the GitHub repo for John the Ripper can be found <a href="https://github.com/openwall/john"  class="external-link" target="_blank" rel="noopener">here</a>.</p>
+<p>When testing the strength or security of passwords during a penetration test/security audit a password cracker can identify weak credentials to highlight vulnerabilities within an organization and its infrastructure. Tools like John the Ripper can also prove useful in a forensic investigation where an unknown password may hold investigators from important data.</p>
+<p>In my case, during a CTF for the PJPT I discovered a zip file that was password protected. A lot less exciting, but still fun and educational!</p>
+<h1 id="using-john">
+  Using John
+  <a class="heading-link" href="#using-john">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<p>John the Ripper has a unique but simple way of documenting its functionality. After downloading and unzipping the app, there are 3 directories; <code>doc</code>, <code>etc</code>, and <code>run</code>.</p>
+<hr>
+<p><code>doc</code> contains the documentation related to John the Ripper and how to use it.</p>
+<p><code>etc</code> holds vendor files  - I didn&rsquo;t touch these.</p>
+<p>and <code>run</code> has the executables files, wordlists and other resources.</p>
+<hr>
+<p>First, I needed to get the hash from the file. In the documentation there is a file called <code>README-ZIP.txt</code> which contains all we need to know about cracking zip files with this software, and it is <em>dirt simple</em></p>
+<p>To extract the hash for John to use, we run a program called <code>zip2john</code> in the <code>run</code> directory. The first argument is the zip file, and we can redirect this output into a new file like so:</p>
+<p><img src="/blog/john/zip2john.png" alt="zip2john-command"></p>
+<p>With this file I can run John and feed it the hash contents for it to crack.</p>
+<p><img src="/blog/john/password.png" alt="password-found"></p>
+<p>And success! The password is <code>java101</code>. Onto the next step&hellip;</p>
+
+  </article>
+</section>
+
+  
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2025
+     Karl Trowbridge 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js" integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>
