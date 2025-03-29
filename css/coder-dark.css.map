@@ -1,7 +1,7 @@
 {
 	"version": 3,
 	"file": "coder-dark.css",
-	"sourceRoot": "C:/Users/karlt/OneDrive/Documents/GitHub/Karl-Portfolio",
+	"sourceRoot": "C:/Users/karlt/Documents/GitHub/Karl-Portfolio",
 	"sources": [
 		"themes/hugo-coder/assets/scss/coder-dark.scss",
 		"themes/hugo-coder/assets/scss/_variables.scss",

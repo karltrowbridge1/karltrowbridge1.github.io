@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Mac Mini · Karl Trowbridge | Portfolio
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Karl Trowbridge">
+<meta name="description" content="The new addition of an old Mac Mini to my homelab setup has introduced enough computing power to enable a staple in my IT career thus far; virtualization! The immediate choice was the most recent virtualization service I had used at the SEMO Cyber Range, Proxmox. I knew this was free, and highly configurable, a benefit that I saw useful considering the abnormal equipment for my hardware. This is a write up on how I added virtualization to my homelab.">
+<meta name="keywords" content="blog,developer,personal">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Mac Mini">
+  <meta name="twitter:description" content="The new addition of an old Mac Mini to my homelab setup has introduced enough computing power to enable a staple in my IT career thus far; virtualization! The immediate choice was the most recent virtualization service I had used at the SEMO Cyber Range, Proxmox. I knew this was free, and highly configurable, a benefit that I saw useful considering the abnormal equipment for my hardware. This is a write up on how I added virtualization to my homelab.">
+
+<meta property="og:url" content="http://localhost:1313/blog/macmini/">
+  <meta property="og:site_name" content="Karl Trowbridge | Portfolio">
+  <meta property="og:title" content="Mac Mini">
+  <meta property="og:description" content="The new addition of an old Mac Mini to my homelab setup has introduced enough computing power to enable a staple in my IT career thus far; virtualization! The immediate choice was the most recent virtualization service I had used at the SEMO Cyber Range, Proxmox. I knew this was free, and highly configurable, a benefit that I saw useful considering the abnormal equipment for my hardware. This is a write up on how I added virtualization to my homelab.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2025-02-05T17:50:10-05:00">
+    <meta property="article:modified_time" content="2025-02-05T17:50:10-05:00">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/blog/macmini/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/img/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/img/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/img/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      Karl Trowbridge | Portfolio
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/blog/">Blog</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/projects/">Projects</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="https://www.linkedin.com/in/karl-trowbridge-cyber/">LinkedIn</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container page">
+  <article>
+    <header>
+      <h1 class="title">
+        <a class="title-link" href="http://localhost:1313/blog/macmini/">
+          Mac Mini
+        </a>
+      </h1>
+    </header>
+
+    <p>The new addition of an old Mac Mini to my homelab setup has introduced enough computing power to enable a staple in my IT career thus far; virtualization! The immediate choice was the most recent virtualization service I had used at the SEMO Cyber Range, Proxmox. I knew this was free, and highly configurable, a benefit that I saw useful considering the abnormal equipment for my hardware. This is a write up on how I added virtualization to my homelab.</p>
+<h2 id="installation">
+  Installation
+  <a class="heading-link" href="#installation">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p><a href="https://proxmox.com/en/downloads/proxmox-virtual-environment"  class="external-link" target="_blank" rel="noopener">The Proxmox ISO</a> was the first choice for installation. During my time as a sysadmin at SEMO I utilized this installation media every time we added new hardware to the Proxmox cluster. Though, this time the media gave me a hard time, hanging on boot when <code>Initializing ramdisk...</code>. I suspect this was due to problems installing on a legacy BIOS machine, drivers, or some strange Kernel incompatibility. After a couple more attempts, a live boot and recovery kernel later, I switched to using Debian as a base and installing Proxmox on top.</p>
+<p>Using Debian 12, I followed the <a href="https://pve.proxmox.com/wiki/Install_Proxmox_VE_on_Debian_12_Bookworm"  class="external-link" target="_blank" rel="noopener">official documentation</a> completing the following steps:</p>
+<ul>
+<li>Adding the Proxmox VE Repo</li>
+<li>Installing the Proxmox VE Kernel</li>
+<li>Installing Proxmox VE packages</li>
+<li>Removing the Debian Kernel and using the Proxmox VE Kernel</li>
+</ul>
+<p>After a reboot Proxmox loaded up with instructions to head to it&rsquo;s web app.</p>
+<h2 id="wifi">
+  WiFi
+  <a class="heading-link" href="#wifi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>My current situation doesn&rsquo;t quite allow drilling a hole in the floorboards for an ethernet connection, instead the WiFi card became the new focus. Running <code>lspci</code> showed that I hade a Broadcom BCM 4331</p>
+<pre tabindex="0"><code>03:00.0 Network controller: Broadcom Inc. and subsidiaries BCM4331 802.11a/b/g/n (rev 02)
+</code></pre><p>With the knowledge of the WiFi card in the machine the driver can be narrowed down and located. Debian has an entire <a href="https://wiki.debian.org/wl"  class="external-link" target="_blank" rel="noopener">page for exactly that is the page that</a>. In a pinch I tethered the Mac Mini to my laptop for network connection. This enabled me to install a package with the correct driver to use my WiFi.</p>
+<p>At this point I had access to my web app for Proxmox!</p>
+<h2 id="networking">
+  Networking
+  <a class="heading-link" href="#networking">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Because of the use of WiFi on the Mac Mini, the default <code>vmbr0</code> network adapter would not work for my use. I concluded that the next best option was a Linux bridge interface. So with the following config:</p>
+<pre tabindex="0"><code>auto lxcbr0
+iface lxcbr0 inet static
+    address 10.10.10.1/24
+    bridge-ports none
+    bridge-stp off
+    bridge-fd 0
+    post-up iptables -t nat -A POSTROUTING -s 10.10.10.0/24 -o wlp3s0 -j MASQUERADE
+    post-down iptables -t nat -D POSTROUTING -s 10.10.10.0/24 -o wlp3s0 -j MASQUERADE
+</code></pre><p>I now had a network for machines to exist on that can now reach my home network contingent on the use of a static route.</p>
+<h2 id="certificates">
+  Certificates
+  <a class="heading-link" href="#certificates">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>The final cherry on top of this project is installing certificates to encrypt my traffic on my network (and get rid of the warning on a web browser). To achieve this, I decided to host an NGINX container for a reverse proxy that utilized certificates made with <a href="https://github.com/FiloSottile/mkcert"  class="external-link" target="_blank" rel="noopener">MKCert</a>, a tool used to create locally trusted certificates.</p>
+<p><code>mkcert -install</code> creates a new local CA. To create the certificates themselves:</p>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>mkcert <span style="color:#a5d6ff">&#34;*.home.red&#34;</span>
+</span></span></code></pre></div><p>The certificates created are then transferred to the Nginx machine (created next step) at the <code>/etc/ssl/</code> directory. To secure connections useing TLS, Nginx will be configured as a reverse proxy. This server will handle the encryption and decryption while forwarding requests to Proxmox.</p>
+<p>I created a new LXC container using an Alpine Template, and installed Nginx:</p>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>apk add nginx
+</span></span><span style="display:flex;"><span>service nginx start
+</span></span></code></pre></div><p>Finally, the configuration can be set at <code>/etc/nginx/conf.d/reserve-proxy.conf</code></p>
+<pre tabindex="0"><code>server {
+    listen 80;
+    server_name proxmox.home.red;
+    return 301 https://$host$request_uri;
+}
+
+server {
+    listen 443 ssl;
+    server_name proxmox.home.red;
+
+    ssl_certificate /etc/ssl/_wildcard.home.red.pem;
+    ssl_certificate_key /etc/ssl/_wildcard.home.red-key.pem;
+
+    location / {
+        proxy_pass https://10.0.0.27:8006;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto https;
+
+        # WebSocket support
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection &#39;upgrade&#39;;
+        proxy_cache_bypass $http_upgrade;
+    }
+}
+</code></pre><p>With this completed, I then add the address of the nginx server <code>10.10.10.101</code> to the address <code>proxmox.home.red</code> to the DNS Records on my pihole. I now have a secure and trusted connection to my Proxmox server. Super excited to have this hardware addition for any sort of project or service that requires hosting!</p>
+
+  </article>
+</section>
+
+  
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2025
+     Karl Trowbridge 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>

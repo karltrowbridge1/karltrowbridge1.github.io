@@ -1,7 +1,7 @@
 {
 	"version": 3,
 	"file": "coder.css",
-	"sourceRoot": "C:/Users/karlt/OneDrive/Documents/GitHub/Karl-Portfolio",
+	"sourceRoot": "C:/Users/karlt/Documents/GitHub/Karl-Portfolio",
 	"sources": [
 		"themes/hugo-coder/assets/scss/coder.scss",
 		"themes/hugo-coder/assets/scss/css/normalize.css",
