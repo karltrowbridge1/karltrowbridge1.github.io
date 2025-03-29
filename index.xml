@@ -6,8 +6,15 @@
     <description>Recent content on Karl Trowbridge | Portfolio</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 05 Feb 2025 17:50:10 -0500</lastBuildDate>
+    <lastBuildDate>Sat, 29 Mar 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://karltrowbridge1.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mac Mini Homelab Addition</title>
+      <link>https://karltrowbridge1.github.io/blog/macmini/</link>
+      <pubDate>Sat, 29 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>https://karltrowbridge1.github.io/blog/macmini/</guid>
+      <description>&lt;p&gt;The new addition of an old Mac Mini to my homelab setup has introduced enough computing power to enable a staple in my IT career thus far; virtualization! The immediate choice was the most recent virtualization service I had used at the SEMO Cyber Range, Proxmox. I knew this was free, and highly configurable, a benefit that I saw useful considering the abnormal equipment for my hardware. This is a write up on how I added virtualization to my homelab.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Monitor Lab</title>
       <link>https://karltrowbridge1.github.io/blog/monitorlab/</link>
